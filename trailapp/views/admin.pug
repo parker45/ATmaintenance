@@ -1,0 +1,20 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='stylesheets/admin.css')
+block content
+  ul.column_list
+    li.scrollagble_list.inbox
+      div.list_title
+        h2 Inbox
+      ul.card_list
+        li.card_item
+    li.scrollagble_list.recurring
+      div.list_title
+        h2 Recurring
+      ul.card_list
+        li.card_item
+  div.new
+    div.new-task
+      h2 New Task
+    div.new-trip
+      h2 New Trip
