@@ -8,7 +8,7 @@ block content
       li.scrollable_list.inbox
         div.list_title
           h2 Inbox
-          i.fas.fa-ellipsis-h
+          i.fas.fa-inbox
         div.list_container
           ul.card_list
             li.card_item
@@ -56,12 +56,13 @@ block content
       li.scrollable_list.recurring
         div.list_title
           h2 Recurring
-          i.fas.fa-ellipsis-h
+          i.fas.fa-calendar-alt
           form(action='#')
+            //- i.material-icons.search_icon search
             div.mdl-textfield.mdl-js-textfield
-              //- i.material-icons search
-              input(type='text', name='title', value='', id="search").mdl-textfield__input
-              label(for="search").mdl-textfield__label Search...
+              input(type='text', name='title', value='', id="search").mdl-textfield__input.search_field
+              label(for="search").mdl-textfield__label.search_label Search...
+              i.material-icons.mdl-textfield__label__icon search
         div.list_container
           ul.card_list
             li.card_item.card_tag--easy
@@ -138,8 +139,10 @@ block content
               button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
       li.new
         button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
-          i.fas.fa-plus-square
+          //- i.fas.fa-plus-square
+          i.fas.fa-thumbtack
           h3 New Task
         button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_trip
-          i.fas.fa-plus-square
+          //- i.fas.fa-plus-square
+          i.fas.fa-hiking
           h3 New Trip

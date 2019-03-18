@@ -8,7 +8,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
-  font-family: 'Helvetica Neue', Arial, Helvetica,sans-serif;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  background: #17384d;
 }
 
 li, ul {
@@ -53,7 +54,7 @@ li, ul {
 
 .scrollable_list {
   border-radius: .2rem;
-  background-color: #dfe3e6;
+  background-color: #fdfdfd;
   padding: .5rem 1rem;
   height: calc(100vh - 3rem);
   min-height: 262px;
@@ -69,7 +70,8 @@ li, ul {
 .list_title h2 {
   color: #17394d;
   font-weight: 700;
-  font-size: .9rem;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .list_title i {
@@ -79,6 +81,17 @@ li, ul {
 
 .list_title form {
   margin-block-end: -15px;
+}
+
+.mdl-textfield__label__icon {
+   position: absolute;
+   left: 0;
+   top: 21px;
+}
+
+.search_field,
+.search_label {
+  margin-left: 28px;
 }
 
 .card_list {
@@ -144,8 +157,8 @@ li, ul {
   width: 26%;
   border: 0px black solid;
   line-height: 0px !important;
-  color: #000 !important;
-  font: 400 13.3333px Arial !important;
+  /*color: #000 !important;*/
+  /*font: 400 13.3333px Arial !important;*/
   cursor: pointer;
   border-radius: 2px;
   background: none;
@@ -155,23 +168,23 @@ li, ul {
 
 .card_rank {
   float: left;
-  background: #BCD9EA !important;
+  background: #00838F !important;
   margin-left: 10px;
 }
 
 .card_edit {
-  background: #B7DDB0 !important;
+  background: #43A047 !important;
   margin-right: 2rem;
 }
 
 
 .card_merge {
-  background: #FFB968 !important;
+  background: #7986CB !important;
 }
 
 .card_delete {
   float: right;
-  background: #EC9488 !important;
+  background: #E65100 !important;
   margin-right: 10px;
 }
 
@@ -201,7 +214,7 @@ li, ul {
   height: 50%;
   border: 0px solid;
   border-radius: 2px;
-  background: #dfe3e6 !important;
+  background: #fdfdfd !important;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -211,6 +224,7 @@ li, ul {
 .new_button i {
   font-size: 250px;
   color: #17394d;
+  padding-block-end: 15px;
   transition: .5s;
 }
 
