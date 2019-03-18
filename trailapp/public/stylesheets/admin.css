@@ -11,10 +11,6 @@ body {
   font-family: 'Helvetica Neue', Arial, Helvetica,sans-serif;
 }
 
-a {
-  /*color: #00B7FF;*/
-}
-
 li, ul {
   list-style: none;
 }
@@ -42,19 +38,25 @@ li, ul {
 
 .column_list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: .5rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-gap: 1.5rem;
   align-items: flex-start;
-  /* Uncomment these lines if you want to have the standard Trello behavior instead of the column wrapping */
-  /*grid-auto-flow: column;*/
-  /*grid-auto-columns: minmax(260px, 1fr);*/
 }
 
-.scrollagble_list {
+.column_list>li:first-child {
+  grid-column: span 2;
+}
+
+.column_list>li:nth-child(2) {
+  grid-column: span 2;
+}
+
+.scrollable_list {
   border-radius: .2rem;
   background-color: #dfe3e6;
-  padding: .5rem;
+  padding: .5rem 1rem;
   height: calc(100vh - 3rem);
+  min-height: 262px;
 }
 
 .list_title {
@@ -75,10 +77,14 @@ li, ul {
   color: #798d99;
 }
 
+.list_title form {
+  margin-block-end: -15px;
+}
+
 .card_list {
   display: grid;
   grid-template-rows: auto;
-  grid-gap: .5rem;
+  grid-gap: 1rem;
   margin: .5rem 0;
   margin-right: .5rem;
 }
@@ -86,14 +92,25 @@ li, ul {
 .list_container {
   overflow-y: scroll;
   height: calc(100vh - 5rem);
+  min-height: 230px;
+}
+
+.recurring .list_container {
+  height: calc(100vh - 5rem - 52px);
+  min-height: 178px;
+}
+
+.recurring .card_item {
+  text-align: right;
 }
 
 .card_item {
   background-color: white;
   border-radius: .25rem;
-  box-shadow: 0 1px 0 rgba(9,45,66,.25);
   padding: .5rem;
   text-align: center;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  border-radius: 2px;
 }
 
 .card_title {
@@ -124,8 +141,11 @@ li, ul {
 }
 
 .card_button {
-  width: 30%;
-  border: 1px black solid;
+  width: 26%;
+  border: 0px black solid;
+  line-height: 0px !important;
+  color: #000 !important;
+  font: 400 13.3333px Arial !important;
   cursor: pointer;
   border-radius: 2px;
   background: none;
@@ -135,37 +155,24 @@ li, ul {
 
 .card_rank {
   float: left;
-  background: #BCD9EA;
-}
-
-.card_rank:hover {
-  background: #8BBDD9;
+  background: #BCD9EA !important;
+  margin-left: 10px;
 }
 
 .card_edit {
-  float: left;
-  background: #B7DDB0;
+  background: #B7DDB0 !important;
+  margin-right: 2rem;
 }
 
-.card_edit:hover {
-  background: #99D18F;
-}
 
 .card_merge {
-  background: #FFB968;
-}
-
-.card_merge:hover {
-  background: #FFAB4A;
+  background: #FFB968 !important;
 }
 
 .card_delete {
   float: right;
-  background: #EC9488;
-}
-
-.card_delete:hover {
-  background: #EF7564;
+  background: #EC9488 !important;
+  margin-right: 10px;
 }
 
 .card_tag--easy {
@@ -186,6 +193,7 @@ li, ul {
 
 .new {
   height: calc(100vh - 3rem);
+  min-height: 262px;
 }
 
 .new_button {
@@ -193,25 +201,23 @@ li, ul {
   height: 50%;
   border: 0px solid;
   border-radius: 2px;
-  background: #dfe3e6;
+  background: #dfe3e6 !important;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   transition: .5s;
 }
 
-.new_button:hover {
-  background: #caced0;
-}
-
 .new_button i {
   font-size: 250px;
   color: #17394d;
+  transition: .5s;
 }
 
 .new_button h3 {
   font-size: 40px;
   color: #17394d;
+  transition: .5s;
 }
 
 .new_task {
@@ -220,6 +226,30 @@ li, ul {
 
 .new_trip {
 
+}
+
+/*@media screen and (max-width: 1387px) {
+  .column_list>li:last-child {
+    grid-column: span 4;
+  }
+  .new {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+    grid-gap: 1.5rem;
+  }
+  .new_button {
+    padding: 30px;
+  }
+}*/
+
+@media screen and (max-height: 680px) {
+  .new_button i {
+      font-size: 100px;
+  }
+
+  .new_button h3 {
+      font-size: 18px;
+  }
 }
 
 /* REFERENCE */
