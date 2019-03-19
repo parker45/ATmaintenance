@@ -69,3 +69,27 @@
     background:
     url('../images/trash.png') bottom right 15% no-repeat #46B6AC;
 }
+#trail {
+    background:
+    url('../images/trail.png') bottom right 15% no-repeat #46B6AC;
+}
+#blaze {
+    background:
+    url('../images/paint.png') bottom right 15% no-repeat #46B6AC;
+}
+#other {
+    background:
+    url('../images/other.png') bottom right 15% no-repeat #46B6AC;
+}
+#images {
+    background:
+    url('../images/camera.png') bottom right 15% no-repeat rgb(70, 106, 182); 
+}
+#description {
+    background:
+    url('../images/pencil.png') bottom right 15% no-repeat rgb(70, 106, 182); 
+}
+
+label.input-custom-file input[type=file] {
+    display: none;
+  }
