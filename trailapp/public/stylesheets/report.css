@@ -1,7 +1,6 @@
-h3 {
-    margin: 48px !important;
-}
-
+.demo-content h3 {
+    margin-top: 48px;
+  }
 
 .demo-ribbon {
     width: 100%;
@@ -41,4 +40,32 @@ h3 {
 
 .demo-footer .mdl-mini-footer--link-list a {
     font-size: 13px;
+}
+#map {
+    height: 300px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+    margin: 10px;
+   }
+.center-align {
+    text-align: center;
+}
+.demo-card-square.mdl-card {
+    width: 95%;
+    height: 275px;
+}
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    
+}
+#tree {
+    background:
+      url('../images/tree.png') bottom right 15% no-repeat #46B6AC;
+}
+#shelter {
+    background:
+      url('../images/cabin.png') bottom right 15% no-repeat #46B6AC;
+}
+#garbage {
+    background:
+    url('../images/trash.png') bottom right 15% no-repeat #46B6AC;
 }
