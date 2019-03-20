@@ -1,5 +1,7 @@
-extends reportLayout
-
+extends layout
+block extraHeader
+  link(rel='stylesheet', href='/stylesheets/report.css')
+  script(src='/javascripts/report.js')
 block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
