@@ -1,0 +1,116 @@
+textarea {
+  resize: none;
+}
+
+.column_list {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.column_list>li:first-child,
+.column_list>li:nth-child(2) {
+  grid-column: span 1;
+}
+
+.column_list>li:first-child {
+  background: #fdfdfd;
+  padding: .5rem 1rem;
+  border-radius: .2rem;
+}
+
+.scrollable_list {
+  height: calc(100vh - 3rem);
+}
+
+.list_container {
+  height: calc(100vh - 6.5rem);
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+  margin: .5rem 0;
+}
+
+.mdl-card {
+  width: auto;
+  margin-right: .5rem;
+}
+
+.add_image_button {
+  background: #43A047 !important;
+}
+
+.submit_task_button {
+  width: 300px;
+  height: 50px;
+  background: #00838F !important;
+}
+
+form {
+  height: 88vh;
+}
+
+.image_card.mdl-card {
+  background: url('../images/test.jpg') center / cover;
+}
+
+.image_card > .mdl-card__actions {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.image_card__filename {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mdl-textfield {
+  display: block;
+}
+
+option.easy {
+  background-color: #61BD4F;
+  color: #FFF;
+}
+
+option.medium {
+  background-color: #F2D600;
+  color: #FFF;
+}
+
+option.hard {
+  background-color: #EB5A46;
+  color: #FFF;
+}
+
+option.epic {
+  background-color: #C377E0;
+  color: #FFF;
+}
+
+.submit_task_button_narrow {
+  display: none;
+  width: calc(100vw - 2.5rem);
+  height: 50px;
+  background: #00838F !important;
+}
+
+@media screen and (max-width: 1064px) {
+  .wrapper {
+    overflow: hidden;
+  }
+
+  form {
+    height: auto;
+  }
+
+  .submit_task_button {
+    display: none;
+  }
+
+  .submit_task_button_narrow {
+    display: block;
+  }
+
+  .scrollable_list {
+    width: calc(100vw - 4.5rem);
+  }
+}
