@@ -13,6 +13,12 @@ var adminFormRouter = require('./routes/admin_form');
 var reportRouter = require('./routes/report');
 
 var app = express();
+//Set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb+srv://admin:admin@cluster0-f6biw.mongodb.net/test?retryWrites=true';
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
