@@ -12,6 +12,8 @@ var adminFormRouter = require('./routes/admin_form');
 
 var reportRouter = require('./routes/report');
 
+var databaseRouter = require('./routes/database');
+
 var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
@@ -32,6 +34,7 @@ app.use(express.static(__dirname + "/public"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/database', databaseRouter);
 
 app.use('/admin', adminRouter);
 app.use('/admin_form', adminFormRouter);
