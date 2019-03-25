@@ -7,9 +7,6 @@ var trip_controller = require('../controllers/tripController');
 // GET request lists all tasks
 router.get('/tasks', task_controller.task_list);
 
-// GET request for one task
-router.get('/task/:id', task_controller.task_detail)
-
 // POST create
 router.post('/task/create', task_controller.task_create_post)
 
@@ -23,7 +20,7 @@ router.post('/task/delete', task_controller.task_delete_post)
 router.get('/trips', trip_controller.trip_list);
 
 // GET request for one task
-router.get('/trip/:id', trip_controller.trip_detail)
+router.get('/task/:id', task_controller.task_detail)
 
 // POST create
 router.post('/trip/create', trip_controller.trip_create_post)
@@ -33,5 +30,8 @@ router.post('/trip/update', trip_controller.trip_update_post)
 
 // POST delete
 router.post('/trip/delete', trip_controller.trip_delete_post)
+
+// GET request for one task
+router.get('/trip/:id', trip_controller.trip_detail)
 
 module.exports = router
