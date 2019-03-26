@@ -1,6 +1,7 @@
 extends layout
 block extraHeader
   link(rel='stylesheet', href='/stylesheets/report.css')
+  script(src='/javascripts/report.js')
 block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
@@ -80,4 +81,8 @@ block content
                 form(action='#')
                     .mdl-textfield.mdl-js-textfield
                         textarea#sample5.mdl-textfield__input(type='text', rows='2')
-                        label.mdl-textfield__label(for='sample5') Input Here...          
+                        label.mdl-textfield__label(for='sample5') Input Here... 
+    .mdl-cell.mdl-cell--12-col
+        .center-align
+            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored
+                | Submit                           
