@@ -10,11 +10,14 @@ router.get('/tasks', task_controller.task_list);
 // POST create
 router.post('/task/create', task_controller.task_create_post)
 
+// GET form to update single task
+router.get('/task/:id/update', task_controller.task_update_get)
+
 // POST update
-router.post('/task/update', task_controller.task_update_post)
+router.post('/task/:id/update', task_controller.task_update_post)
 
 // POST delete
-router.post('/task/delete', task_controller.task_delete_post)
+router.post('/task/:id/delete', task_controller.task_delete_post)
 
 // GET request lists all trips
 router.get('/trips', trip_controller.trip_list);

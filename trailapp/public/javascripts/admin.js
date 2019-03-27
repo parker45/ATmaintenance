@@ -18,6 +18,4 @@ $(document).ready(function(){
   $('.card_date').each(function (index, value) {
     $('.card_date')[index].innerHTML = $.date($('.card_date')[index].innerHTML);
   });
-
-  // console.log("card_date");
 });

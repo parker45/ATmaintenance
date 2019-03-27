@@ -18,6 +18,22 @@ exports.admin = function(req, res) {
     });
 };
 
+exports.task_update_get = function(req, res, next) {
+    async.parallel({
+        task: function(callback) {
+            Task.findById(req.params.id).exec(callback);
+        }
+      }, function(err, results) {
+          if (err) { return next(err); }
+          if (results.task==null) { // No results.
+              var err = new Error('Task not found');
+              err.status = 404;
+              return next(err);
+          }
+          res.render('admin_form', { title: 'OCVT Manager | Form', task:results.task });
+      });
+};
+
 // Display list of all Tasks
 exports.task_list = function(req, res) {
   res.send('NOT IMPLEMENTED: Task create GET');
