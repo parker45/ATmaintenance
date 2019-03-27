@@ -2,6 +2,7 @@ extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/admin.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    script(type='text/javascript', src='/javascripts/admin.js')
 block content
   section.wrapper
     ul.column_list
@@ -9,144 +10,60 @@ block content
         div.list_title
           h2 Inbox
           i.fas.fa-inbox
-          h2 #[strong Books:] !{data.count}
         div.list_container
           ul.card_list
             each inbox in data.inbox
               li.card_item
-                h3 #{inbox.title}
-            //- li.card_item
-            //-   h3.card_date 2/20/2019
-            //-   h3.card_location B1
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            //- li.card_item
-            //-   h3.card_date 2/18/2019
-            //-   h3.card_location P3
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            //- li.card_item
-            //-   h3.card_date 2/14/2019
-            //-   h3.card_location P1
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            //- li.card_item
-            //-   h3.card_date 2/10/2019
-            //-   h3.card_location P5
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            //- li.card_item
-            //-   h3.card_date 2/10/2019
-            //-   h3.card_location P2
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            //- li.card_item
-            //-   h3.card_date 2/8/2019
-            //-   h3.card_location B3
-            //-   p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
-            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                h3.card_date #{inbox.creation_date}
+                h3.card_location #{inbox.location}
+                p.card_description #{inbox.description}
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
       li.scrollable_list.recurring
         div.list_title
           h2 Recurring
           i.fas.fa-calendar-alt
           form(action='#')
-            //- i.material-icons.search_icon search
             div.mdl-textfield.mdl-js-textfield
               input(type='text', name='title', value='', id="search").mdl-textfield__input.search_field
               label(for="search").mdl-textfield__label.search_label Search...
               i.material-icons.mdl-textfield__label__icon search
         div.list_container
           ul.card_list
-            li.card_item.card_tag--easy
-              h3.card_date 2/25/2019
-              h3.card_location B1
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--medium
-              h3.card_date 2/25/2019
-              h3.card_location B3
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--easy
-              h3.card_date 3/12/2019
-              h3.card_location P5
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--epic
-              h3.card_date 3/13/2019
-              h3.card_location P3
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--hard
-              h3.card_date 3/15/2019
-              h3.card_location P2
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--easy
-              h3.card_date 3/15/2019
-              h3.card_location P2
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--medium
-              h3.card_date 3/20/2019
-              h3.card_location B2
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--medium
-              h3.card_date 3/21/2019
-              h3.card_location P3
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
-            li.card_item.card_tag--easy
-              h3.card_date 3/23/2019
-              h3.card_location P7
-              br
-              h3.card_title Lorem ipsum
-              p.card_description Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
-              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+            each recurring in data.recurring
+              if recurring.priority=='Low'
+                li.card_item.card_tag--low
+                  h3.card_date #{recurring.due_date}
+                  h3.card_location #{recurring.location}
+                  p.card_description #{recurring.description}
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+              else if recurring.priority=='Medium'
+                li.card_item.card_tag--medium
+                  h3.card_date #{recurring.due_date}
+                  h3.card_location #{recurring.location}
+                  p.card_description #{recurring.description}
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+              else if recurring.priority=='Urgent'
+                li.card_item.card_tag--urgent
+                  h3.card_date #{recurring.due_date}
+                  h3.card_location #{recurring.location}
+                  p.card_description #{recurring.description}
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+              else if recurring.priority=='Emergency'
+                li.card_item.card_tag--emergency
+                  h3.card_date #{recurring.due_date}
+                  h3.card_location #{recurring.location}
+                  p.card_description #{recurring.description}
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit Edit
+                  button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
       li.new
         button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
-          //- i.fas.fa-plus-square
           i.fas.fa-thumbtack
           h3 New Task
         button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_trip
-          //- i.fas.fa-plus-square
           i.fas.fa-hiking
           h3 New Trip

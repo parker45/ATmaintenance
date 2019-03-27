@@ -9,6 +9,5 @@ var task_controller = require('../controllers/taskController');
 // });
 
 router.get('/', task_controller.admin);
-router.get('/', task_controller.admin);
 
 module.exports = router;

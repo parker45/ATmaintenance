@@ -3,14 +3,6 @@ var Task = require('../models/task')
 var async = require('async');
 
 exports.admin = function(req, res) {   
-    // Task.find({}, 'title')
-    // .populate('title')
-    // .exec(function (err, list_tasks) {
-    //   if (err) { return next(err); }
-    //   //Successful, so render
-    //   // res.render('admin', { title: 'OCVT Manager | Admin', error: err, task_list: list_tasks });
-    // });
-
     async.parallel({
         inbox: function(callback) {
             Task.find({type:'Inbox'}, callback);
@@ -22,7 +14,6 @@ exports.admin = function(req, res) {
             Task.countDocuments({}, callback);
         }
     }, function(err, results) {
-        // res.render('admin', { title: 'OCVT Manager | Admin', error: err, data: results, task_list: list_tasks });
         res.render('admin', { title: 'OCVT Manager | Admin', error: err, data: results });
     });
 };
@@ -30,13 +21,6 @@ exports.admin = function(req, res) {
 // Display list of all Tasks
 exports.task_list = function(req, res) {
   res.send('NOT IMPLEMENTED: Task create GET');
-  // Task.find({}, 'title')
-  //   .populate('title')
-  //   .exec(function (err, list_tasks) {
-  //     if (err) { return next(err); }
-  //     //Successful, so render
-  //     res.render('admin', { title: 'OCVT Manager | Admin', error: err, task_list: list_tasks });
-  //   });
 };
 
 // Display detail page for a specific task.
