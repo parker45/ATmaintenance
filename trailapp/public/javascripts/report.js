@@ -11,7 +11,14 @@ $('document').ready(function(){
         console.log(localStorage.getItem("location"));
     });
 
-    
+    $("#submit-btn").click(function(){
+        const body = buildBody(localStorage.getItem("location"), selected, "");
+        const url = window.location.origin + "/database/task/create"
+        $.post(url,body, function(body,status){
+            $('body').replaceWith(body)
+        });
+        console.log("helo")
+    })
 
 })
 var map;
@@ -39,16 +46,16 @@ function placeMarkerAndPanTo(latLng, map, marker) {
 
 }
 
-function buildBody(location, id, description) {
+function buildBody(position, id, description) {
     body = {};
-    body.location = location.split(",");
-    body.freation_date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+    body.location = position.split(",");
+    body.creation_date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
     body.due_date = null;
     body.title = "User Report";
     body.priority = "Low";
     body.image_urls = [];
     body.type = "Inbox";
-    body.completed = False;
+    body.completed = false;
     body.trip_id = null;
     body.description = description;
     switch(id){
@@ -56,8 +63,23 @@ function buildBody(location, id, description) {
             body.description = "Tree Blowdown on the trail "+body.description;
             break;
         case "shelter" :
-            body.description = ""
+            body.description = "The shelter is in need of Maintenance "+body.description;
+            break;
+        case "garbage" :
+            body.description = "There is a garabage issue on the trail " + body.description;
+            break;
+        case "trail" :
+            body.description = "The trail is in need of maintenance " + body.description;
+            break;
+        case "blaze" :
+            body.description = "The blazes on the trail are faded or not visible " + body.description;
+            break
+        case "other" :
+            break;
+        default:
+            break;
     }
+    return body;
 }
 
 

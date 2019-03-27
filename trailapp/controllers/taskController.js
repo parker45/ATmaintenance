@@ -26,7 +26,7 @@ exports.task_create_post = (req, res, next) => {
     });
     task.save(function(err){
         if (err) {return next(err); }
-        res.redirect(index);
+        res.redirect('/')
     })
 }
 
