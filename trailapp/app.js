@@ -10,6 +10,9 @@ var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 var adminFormRouter = require('./routes/admin_form');
 
+var tasksRouter = require('./routes/tasks');
+var taskDetailRouter = require('./routes/task_detail');
+
 var reportRouter = require('./routes/report');
 
 var databaseRouter = require('./routes/database');
@@ -38,6 +41,9 @@ app.use('/database', databaseRouter);
 
 app.use('/admin', adminRouter);
 app.use('/admin_form', adminFormRouter);
+
+app.use('/tasks', tasksRouter);
+app.use('/task_detail', taskDetailRouter);
 
 app.use('/report', reportRouter);
 
