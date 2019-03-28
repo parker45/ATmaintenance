@@ -78,10 +78,9 @@ block content
             .mdl-card__supporting-text
                 | Add any additional information.
             .mdl-card__actions.mdl-card--border
-                form(action='#')
-                    .mdl-textfield.mdl-js-textfield
-                        textarea#sample5.mdl-textfield__input(type='text', rows='2')
-                        label.mdl-textfield__label(for='sample5') Input Here... 
+                .mdl-textfield.mdl-js-textfield
+                    textarea#description-input.mdl-textfield__input(type='text', rows='2')
+                    label.mdl-textfield__label(for="description-input") Input Here... 
     .mdl-cell.mdl-cell--12-col
         .center-align
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id="submit-btn")

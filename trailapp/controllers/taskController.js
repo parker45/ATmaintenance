@@ -12,7 +12,8 @@ exports.task_detail = function(req, res) {
 
 // Handle tasks create POST
 exports.task_create_post = (req, res, next) => {
-    var task = new Task( {
+    console.log(req.body);
+    var task = new Task({
         title: req.body.title,
         description: req.body.description,
         due_date: req.body.due_date,
@@ -27,7 +28,7 @@ exports.task_create_post = (req, res, next) => {
     task.save(function(err){
         if (err) {return next(err); }
         res.redirect('/')
-    })
+    });
 }
 
 //Handles task delete POST
