@@ -2,6 +2,7 @@ extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/tasks.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    script(type='text/javascript', src='/javascripts/admin.js')
 block content
   section.wrapper
     div.scrollable_list.tasks
@@ -10,31 +11,15 @@ block content
         i.fas.fa-inbox
       div.list_container
         ul.card_list
-          li.card_item
-            h3.short_desc Short Description
-            h3.card_location High Priority : B1
-            br
-            p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_more More info
-          li.card_item
-            h3.short_desc Short Description
-            h3.card_location Medium Priority : B4
-            br
-            p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_more More info
-          li.card_item
-            h3.short_desc Short Description
-            h3.card_location Low Priority : B3
-            br
-            p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_more More info
-          li.card_item
-            h3.short_desc Short Description
-            h3.card_location Low Priority : P3
-            br
-            p.card_description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
-            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_more More info      
+          each task in data.task_list
+            li.card_item
+              div.topBox
+                h3.short_desc #{task.title}
+                h3.card_location #{task.priority} Priority : #{task.location}
+                br
+                p.card_description #{task.description}
+              br
+              br
+              div.bottomBox
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_more More info  

@@ -44,6 +44,14 @@ li, ul {
   align-items: flex-start;
 }
 
+.topBox {
+  margin-bottom: 5px;
+}
+
+.bottomBox {
+  float: left;
+}
+
 .style1 {
   display: grid;
   grid-template-columns: minmax(180px, 4fr) minmax(60px, 1fr);
