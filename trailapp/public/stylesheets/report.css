@@ -57,6 +57,10 @@
     color: #fff;
     
 }
+.selected {
+    background-color: #B00020 !important;
+}
+
 #tree {
     background:
       url('../images/tree.png') bottom right 15% no-repeat #46B6AC;

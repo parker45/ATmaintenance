@@ -26,6 +26,12 @@ li, ul {
   box-shadow: inset 0 0 3px grey; 
   border-radius: 10px;
 }
+
+.a_button {
+  padding: 0;
+  padding-top: 15px;
+  height: 15px !important;
+}
  
 /* Handle */
 ::-webkit-scrollbar-thumb {

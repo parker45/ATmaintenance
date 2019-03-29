@@ -12,7 +12,7 @@ var TaskSchema = new Schema(
         image_urls:[String],
         type: {type: String, enum:['Inbox', 'Recurring', 'Default'], default: 'Default'},
         completed: {type: Boolean},
-        location: {type:String}
+        location: {type: String}
     }
 )
 
