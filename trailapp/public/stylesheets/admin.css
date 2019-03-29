@@ -54,10 +54,11 @@ li, ul {
 
 .scrollable_list {
   border-radius: .2rem;
-  background-color: #fdfdfd;
+  background-color: #f4f4f4;
   padding: .5rem 1rem;
-  height: calc(100vh - 3rem);
-  min-height: 262px;
+  height: calc(100vh - 7rem);
+  /*min-height: 262px;*/
+  min-height: 320px;
 }
 
 .list_title {
@@ -104,13 +105,15 @@ li, ul {
 
 .list_container {
   overflow-y: scroll;
-  height: calc(100vh - 5rem);
-  min-height: 230px;
+  height: calc(100vh - 9rem);
+  /*min-height: 230px;*/
+  min-height: 288px;
 }
 
 .recurring .list_container {
-  height: calc(100vh - 5rem - 52px);
-  min-height: 178px;
+  height: calc(100vh - 9rem - 52px);
+  /*min-height: 178px;*/
+  min-height: 236px;
 }
 
 .recurring .card_item {
@@ -151,6 +154,7 @@ li, ul {
   margin-block-end: 10px;
   text-align: left;
   font-size: 15px;
+  width: 100%;
 }
 
 .card_button {
@@ -188,7 +192,7 @@ li, ul {
   margin-right: 10px;
 }
 
-.card_tag--easy {
+.card_tag--low {
   border-left: 6px solid #61BD4F;
 }
 
@@ -196,17 +200,18 @@ li, ul {
   border-left: 6px solid #F2D600;
 }
 
-.card_tag--hard {
+.card_tag--urgent {
   border-left: 6px solid #EB5A46;
 }
 
-.card_tag--epic {
+.card_tag--emergency {
   border-left: 6px solid #C377E0;
 }
 
 .new {
-  height: calc(100vh - 3rem);
-  min-height: 262px;
+  height: calc(100vh - 7rem);
+  /*min-height: 262px;*/
+  min-height: 320px;
 }
 
 .new_button {
@@ -214,7 +219,7 @@ li, ul {
   height: 50%;
   border: 0px solid;
   border-radius: 2px;
-  background: #fdfdfd !important;
+  background: #f4f4f4!important;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -222,14 +227,14 @@ li, ul {
 }
 
 .new_button i {
-  font-size: 250px;
+  font-size: 200px;
   color: #17394d;
   padding-block-end: 15px;
   transition: .5s;
 }
 
 .new_button h3 {
-  font-size: 40px;
+  font-size: 35px;
   color: #17394d;
   transition: .5s;
 }
