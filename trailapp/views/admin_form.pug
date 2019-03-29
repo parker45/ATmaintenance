@@ -15,8 +15,7 @@ block content
             input(type='text', name='title', value=(undefined===task ? '' : task.title), id="title").mdl-textfield__input
             label(for="title").mdl-textfield__label Title
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              textarea(type='text', rows='5', id='description').mdl-textfield__input
-                #{task.description}
+              textarea(type='text', rows='5', id='description').mdl-textfield__input=(undefined===task ? '' : task.description)
               label(for='description').mdl-textfield__label Description
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='date', name='due_date', value=(undefined===task ? '' : task.due_date), id="due_date").mdl-textfield__input
