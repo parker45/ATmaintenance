@@ -1,0 +1,23 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/report.css')
+block content
+    .mdl-grid
+        .mdl-cell.mdl-cell--12-col
+            h3 #{trip.date} Work Trip
+            p #{trip.sections_covered}
+            p Number of Attendees #{trip.attendees}
+            p Leader: #{trip.leader}
+            p Workers:
+            ul
+                each val in trip.workers
+                    li= val
+            p Volunteer Hours
+            p Total: #{trip.volunteer_hours[0]}
+            p Trail: #{trip.volunteer_hours[1]}
+            p Driving: #{trip.volunteer_hours[2]}
+            p Summary: #{trip.summary}
+            p Comments: #{trip.comments}
+            p Complete: #{trip.complete}
+
+            

@@ -23,7 +23,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var tasks = []
-// var trips = []
+var trips = []
 
 
 function taskCreate(title, description, due_date, creation_date, priority, trip_id, image_urls, type, completed, location, cb) {
@@ -48,6 +48,26 @@ function taskCreate(title, description, due_date, creation_date, priority, trip_
   }  );
 }
 
+function tripCreate(date, creation_date, sections_covered, attendees, leader, workers, volunteer_hours, summary, comments, complete, cb) {
+    tripdetail = {date:date , sections_covered: sections_covered, attendees: attendees, leader: leader, workers: workers, volunteer_hours: volunteer_hours }
+    if (creation_date != false) tripdetail.creation_date = creation_date
+    if (summary != false) tripdetail.summary = summary
+    if (comments != false) tripdetail.comments = comments
+    if (complete != false) tripdetail.complete = complete
+
+    var trip = new Trip(tripdetail);
+         
+    trip.save(function (err) {
+      if (err) {
+        cb(err, null)
+        return
+      }
+      console.log('New Trip: ' + trip);
+      trips.push(trip)
+      cb(null, trip)
+    }  );
+  }
+
 function createTasks(cb) {
     async.series([
         function(callback) {
@@ -61,8 +81,21 @@ function createTasks(cb) {
         cb);
 }
 
+function createTrip(cb) {
+    async.series([
+        function(callback) {
+          tripCreate('2019-04-06', false, 'P1-P7', 5, 'Sue', ['Bill', "Joe", "Johnny", "Sally"], [15,10,5], 'We need to clear a blowdown near peters mtn', 'Need to do some treadwork on section P5', false, callback);
+        },
+        ],
+        // optional callback
+        cb);
+}
+
+
+
 async.series([
     createTasks,
+    createTrip
 ],
 // Optional callback
 function(err, results) {
