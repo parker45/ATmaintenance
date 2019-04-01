@@ -1,23 +1,27 @@
 extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/report.css')
+    script.
+        date = "#{trip.date}";
+    script(src='/javascripts/trip.js')
 block content
     .mdl-grid
         .mdl-cell.mdl-cell--12-col
-            h3 #{trip.date} Work Trip
-            p #{trip.sections_covered}
-            p Number of Attendees #{trip.attendees}
-            p Leader: #{trip.leader}
-            p Workers:
+            h3 
+            h5 Sections Covered: #{trip.sections_covered}
+            h5 Number of Attendees: #{trip.attendees}
+            h5 Leader: #{trip.leader}
+            h5 Workers:
             ul
                 each val in trip.workers
                     li= val
-            p Volunteer Hours
-            p Total: #{trip.volunteer_hours[0]}
-            p Trail: #{trip.volunteer_hours[1]}
-            p Driving: #{trip.volunteer_hours[2]}
-            p Summary: #{trip.summary}
-            p Comments: #{trip.comments}
-            p Complete: #{trip.complete}
+            h5 Volunteer Hours
+            ul
+                li Total: #{trip.volunteer_hours[0]}
+                li Trail: #{trip.volunteer_hours[1]}
+                li Driving: #{trip.volunteer_hours[2]}
+            h5 Summary: #{trip.summary}
+            h5 Comments: #{trip.comments}
+            h5 Complete: #{trip.complete}
 
             
