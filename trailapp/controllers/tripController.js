@@ -36,6 +36,21 @@ exports.trip_delete_post = function(req, res) {
     res.send('NOT IMPLEMENTED: Trip delete POST');
 };
 
+exports.trip_update_get = function(req, res){
+    async.parallel({
+        trip: function(callback) {
+            Trip.findById(req.params.id).exec(callback);
+        }
+      }, function(err, results) {
+          if (err) { return next(err); }
+          if (results.trip==null) { // No results.
+              var err = new Error('Trip not found');
+              err.status = 404;
+              return next(err);
+          }
+          res.render('trip_edit', { title: 'Trip Edit', trip:results.trip });
+      });
+}
 //Handles trip update POST
 exports.trip_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: Trip update POST');

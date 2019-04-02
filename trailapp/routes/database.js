@@ -28,8 +28,11 @@ router.get('/task/:id', task_controller.task_detail)
 // POST create
 router.post('/trip/create', trip_controller.trip_create_post)
 
+// GET Update
+router.get('/trip/:id/update', trip_controller.trip_update_get)
+
 // POST update
-router.post('/trip/update', trip_controller.trip_update_post)
+router.post('/trip/:id/update', trip_controller.trip_update_post)
 
 // POST delete
 router.post('/trip/delete', trip_controller.trip_delete_post)

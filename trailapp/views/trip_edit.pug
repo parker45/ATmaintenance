@@ -7,7 +7,15 @@ block extraHeader
 block content
     .mdl-grid
         .mdl-cell.mdl-cell--12-col
-            h3 
+            h2 Edit Work Trip
+            form(action="#", id="trip_form")
+                .mdl-textfield.mdl-js-textfield
+                    h5 Trip Date
+                    input#date.mdl-textfield__input(type='date')
+                br
+                .mdl-textfield.mdl-js-textfield
+                    h5 Sections Covered
+                    input#date.mdl-textfield__input(type='text',value=(undefine === trip ? '': trip.sections_covered))
             h5 Sections Covered: #{trip.sections_covered}
             h5 Number of Attendees: #{trip.attendees}
             h5 Leader: #{trip.leader}
@@ -23,3 +31,5 @@ block content
             h5 Summary: #{trip.summary}
             h5 Comments: #{trip.comments}
             h5 Complete: #{trip.complete}
+
+            
