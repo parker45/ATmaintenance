@@ -1,0 +1,49 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/task_detail.css')
+    link(rel='stylesheet', href='/stylesheets/admin.css')
+    link(rel='stylesheet', href='/stylesheets/admin_form.css')
+block content
+  section.wrapper
+    ul.column_list
+      li.info
+        div.title
+          h2 Fallen Tree
+        div.lower
+          h3.bold More Details:
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum<br>
+        div.lower
+          h3.bold Area:
+          h3 P3
+        div.lower
+          h3.bold Priority
+          h3 High
+        div.lower
+          h3.bold Trip Info:
+          h3 Part of: P3 Cleanup  
+          h3 Leader: Christina
+          h3 Trip Date: 4/21/19
+        div.lower
+          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
+          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_join Join trip
+      li.images.scrollable_list
+        div.list_title
+          h2 Images
+          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+        ul.list_container
+          li.image_card.mdl-card.mdl-shadow--2dp
+            div.mdl-card__title.mdl-card--expand
+            div.mdl-card__actions
+              span.image_card__filename Image1.jpg
+          li.image_card.mdl-card.mdl-shadow--2dp
+            div.mdl-card__title.mdl-card--expand
+            div.mdl-card__actions
+              span.image_card__filename Image2.jpg
+          li.image_card.mdl-card.mdl-shadow--2dp
+            div.mdl-card__title.mdl-card--expand
+            div.mdl-card__actions
+              span.image_card__filename Image3.jpg
+          li.image_card.mdl-card.mdl-shadow--2dp
+            div.mdl-card__title.mdl-card--expand
+            div.mdl-card__actions
+              span.image_card__filename Image4.jpg

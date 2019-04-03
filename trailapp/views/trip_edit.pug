@@ -1,0 +1,53 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/report.css')
+    script.
+        date = "#{trip.date}";
+    script(src='/javascripts/trip.js')
+block content
+    .mdl-grid
+        .mdl-cell.mdl-cell--12-col
+            h2 Edit Work Trip
+        .mdl-cell.mdl-cell--12-col
+            form(method="POST",action="")
+                .form-group
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h5 Trip Date
+                        input#date.mdl-textfield__input(type='date', name='date')
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h5 Sections Covered
+                        input#sec.mdl-textfield__input(type='text',name = 'sections_covered',value=(undefined === trip ? '': trip.sections_covered))
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h5 Number of Attendees
+                        input#atn.mdl-textfield__input(type='number',name='attendees',value=(undefined === trip ? '': trip.attendees))
+                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        h5 Trip Leader
+                        input#leader.mdl-textfield__input(type='text',name='leader',value=(undefined === trip ? '': trip.leader))
+                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        h5 Workers
+                        p Enter List Separated by commas
+                        input#workers.mdl-textfield__input(type='text',name='workers',value=(undefined === trip ? '': trip.workers.toString()))                 
+                    h5 Volunteer Hours
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h6 Total
+                        input#total.mdl-textfield__input(type='number',name='total',value=(undefined === trip ? '': trip.volunteer_hours[0]))
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h6 Trail
+                        input#trailhrs.mdl-textfield__input(type='number',name='trail',value=(undefined === trip ? '': trip.volunteer_hours[1]))
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                        h6 Driving
+                        input#driving.mdl-textfield__input(type='number',name='driving',value=(undefined === trip ? '': trip.volunteer_hours[2]))
+                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        h5 Summary
+                        textarea#summary.mdl-textfield__input(type='text',name='summary',rows='3')=(undefined === trip ? '': trip.summary)
+                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        h5 Comments
+                        textarea#comments.mdl-textfield__input(type='text',name='comments',rows='3')=(undefined === trip ? '': trip.comments)
+                    .mdl-cell.mdl-cell--6-col
+                        label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for='complete')
+                            input#complete.mdl-checkbox__input(type='checkbox', name='complete',checked=(undefined === trip ? '': trip.complete))
+                            span.mdl-checkbox__label Completed
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type="submit") Submit
+           
+
+            

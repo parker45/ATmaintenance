@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 
 var TripSchema = new Schema( 
     {
-        date:{type:Date},
+        date:{type:Date, required:true},
         creation_date:{type:Date},
         sections_covered: {type:String, required: true, max:100},
         attendees:{type:Number, required: true},
@@ -12,7 +12,7 @@ var TripSchema = new Schema(
         volunteer_hours:{type:[Number], required:true}, //total, trail, driving
         summary:{type:String},
         comments:{type:String},
-        complete:{type:Boolean}
+        complete:{type:Boolean, default: false}
         
     }
 )

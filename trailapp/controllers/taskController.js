@@ -2,7 +2,7 @@ var Task = require('../models/task')
 
 var async = require('async');
 
-exports.admin = function(req, res) {   
+exports.admin = function(req, res) {
     async.parallel({
         inbox: function(callback) {
             Task.find({type:'Inbox'}, callback);
@@ -36,7 +36,13 @@ exports.task_update_get = function(req, res, next) {
 
 // Display list of all Tasks
 exports.task_list = function(req, res) {
-  res.send('NOT IMPLEMENTED: Task create GET');
+  async.parallel({
+      task_list: function(callback) {
+          Task.find({type:['Default','Recurring']}, callback);
+      }
+  }, function(err, results) {
+      res.render('tasks', { title: 'OCVT Manager | Tasks', error: err, data: results });
+  });
 };
 
 // Display detail page for a specific task.
@@ -74,4 +80,3 @@ exports.task_delete_post = function(req, res) {
 exports.task_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: Task update POST');
 };
-
