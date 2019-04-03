@@ -4,18 +4,19 @@ block extraHeader
   link(rel='stylesheet', href='/stylesheets/admin_form.css')
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script.
+    date="#{task.due_date}"
   script(type='text/javascript', src='/javascripts/admin_form.js')
 block content
   section.wrapper
     ul.column_list
       li.form
-        h3 #{task.due_date}
-        form(action='#', id="task_form")
+        form(action='', id="task_form", method="POST")
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='text', name='title', value=(undefined===task ? '' : task.title), id="title").mdl-textfield__input
             label(for="title").mdl-textfield__label Title
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              textarea(type='text', rows='5', id='description').mdl-textfield__input=(undefined===task ? '' : task.description)
+              textarea(type='text', rows='5', name='description', id='description').mdl-textfield__input=(undefined===task ? '' : task.description)
               label(for='description').mdl-textfield__label Description
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='date', name='due_date', value=(undefined===task ? '' : task.due_date), id="due_date").mdl-textfield__input
@@ -23,43 +24,41 @@ block content
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='location', name='location').mdl-textfield__input
                 option(hidden disabled selected value)
-                option(value='P0') P0
-                option(value='P1') P1
-                option(value='P2') P2
-                option(value='P3') P3
-                option(value='P4') P4
-                option(value='P5') P5
-                option(value='P6') P6
-                option(value='P7') P7
-                option(value='P8') P8
-                option(value='P9') P9
-                option(value='P10') P10
-                option(value='P11') P11
-                option(value='P12') P12
-                option(value='P13') P13
-                option(value='PG') PG
-                option(value='PD') PD
-                option(value='PRF') PRF
-                option(value='B1') B1
-                option(value='B2') B2
-                option(value='B3') B3
-                option(value='BHM') BHM
+                option(value='P0', selected=task.location == 'P0') P0
+                option(value='P1', selected=task.location == 'P1') P1
+                option(value='P2', selected=task.location == 'P3') P2
+                option(value='P3', selected=task.location == 'P3') P3
+                option(value='P4', selected=task.location == 'P4') P4
+                option(value='P5', selected=task.location == 'P5') P5
+                option(value='P6', selected=task.location == 'P6') P6
+                option(value='P7', selected=task.location == 'P7') P7
+                option(value='P8', selected=task.location == 'P8') P8
+                option(value='P9', selected=task.location == 'P9') P9
+                option(value='P10', selected=task.location == 'P10') P10
+                option(value='P11', selected=task.location == 'P11') P11
+                option(value='P12', selected=task.location == 'P12') P12
+                option(value='P13', selected=task.location == 'P13') P13
+                option(value='PG', selected=task.location == 'PG') PG
+                option(value='PD', selected=task.location == 'PD') PD
+                option(value='PRF', selected=task.location == 'PRF') PRF
+                option(value='B1', selected=task.location == 'B1') B1
+                option(value='B2', selected=task.location == 'B2') B2
+                option(value='B3', selected=task.location == 'B3') B3
+                option(value='BHM', selected=task.location == 'BHM') BHM
               label(for='location').mdl-textfield__label Location
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              select(id='priority', name='priority', selected=(undefined===task ? '' : task.priority)).mdl-textfield__input
+              select(id='priority', name='priority').mdl-textfield__input
                 option(hidden disabled selected value)
-                option(value='low').low Low
-                option(value='medium').medium Medium
-                option(value='urgent').urgent Urgent
-                option(value='emergency').emergency Emergency
+                option(value='Low', selected=task.priority == 'Low').low Low
+                option(value='Medium', selected=task.priority == 'Medium').medium Medium
+                option(value='Urgent', selected=task.priority == 'Urgent').urgent Urgent
+                option(value='Emergency', selected=task.priority == 'Emergency').emergency Emergency
               label(for='priority').mdl-textfield__label Priority
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='trip_id', name='trip_id').mdl-textfield__input
                 option(hidden disabled selected value)
-                option(value='a') Trip A
-                option(value='b') Trip B
-                option(value='c') Trip C
-                option(value='d') Trip D
+                each val in trips
+                  option(value=val.date, selected=val.date == task.trip_id)=val.date
               label(for='trip_id').mdl-textfield__label Trip
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='type', name='type').mdl-textfield__input

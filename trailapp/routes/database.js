@@ -19,11 +19,11 @@ router.post('/task/:id/update', task_controller.task_update_post)
 // POST delete
 router.post('/task/:id/delete', task_controller.task_delete_post)
 
-// GET request lists all trips
-router.get('/trips', trip_controller.trip_list);
-
 // GET request for one task
 router.get('/task/:id', task_controller.task_detail)
+
+// GET request lists all trips
+router.get('/trips', trip_controller.trip_list);
 
 // POST create
 router.post('/trip/create', trip_controller.trip_create_post)
