@@ -2,6 +2,13 @@ $(document).ready(function(){
 
   // $('#due_date')[0].value = new Date().toISOString().substr(0, 10);
 
+  // var formatted = new Date(date);
+  // date = formatted.toDateString();
+  // window.onload = function() {
+  //   $('h3').html(date + " Work Trip")
+  //   $('#date').val(formatted.toISOString().substr(0, 10))
+  // }
+
   $('#priority').change(function() {
     switch($('#priority')[0].value) {
       case "low":

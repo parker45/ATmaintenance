@@ -9,6 +9,7 @@ textarea {
 .column_list>li:first-child,
 .column_list>li:nth-child(2) {
   grid-column: span 1;
+  height: calc(100vh - 7rem);
 }
 
 .column_list>li:first-child {
@@ -22,7 +23,7 @@ textarea {
 }
 
 .list_container {
-  height: calc(100vh - 6.5rem);
+  height: calc(100vh - 10.5rem);
   display: grid;
   grid-template-rows: auto;
   grid-gap: 1rem;
@@ -45,7 +46,7 @@ textarea {
 }
 
 form {
-  height: 88vh;
+  /*height: 88vh;*/
 }
 
 .image_card.mdl-card {

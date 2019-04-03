@@ -170,6 +170,12 @@ li, ul {
   transition: .5s;
 }
 
+.a_button {
+  padding: 0;
+  padding-top: 15px;
+  height: 15px;
+}
+
 .card_rank {
   float: left;
   background: #00838F !important;
