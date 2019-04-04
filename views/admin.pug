@@ -109,7 +109,7 @@ block content
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
       li.new
-        button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
+        button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
           i.fas.fa-thumbtack
           h3 New Task
         button(onclick="window.location.href = '/database/trip/5ca15010549e5c52f8629e2e';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_trip
