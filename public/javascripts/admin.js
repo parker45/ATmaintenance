@@ -14,7 +14,31 @@ $.date = function(dateObject) {
     return date;
 };
 
-$(document).ready(function(){
+function searchTasks() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('search');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("task_list");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    title = li[i].getElementsByClassName("card_title")[0];
+    txtValueTitle = title.textContent || title.innerText;
+
+    description = li[i].getElementsByClassName("card_description")[0];
+    txtValueDescription = description.textContent || description.innerText;
+
+    if (txtValueTitle.toUpperCase().indexOf(filter) > -1 || txtValueDescription.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+$(document).ready(function() {
   $('.card_date').each(function (index, value) {
     $('.card_date')[index].innerHTML = $.date($('.card_date')[index].innerHTML);
   });
