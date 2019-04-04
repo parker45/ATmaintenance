@@ -57,7 +57,6 @@ block content
               label(for='priority').mdl-textfield__label Priority
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='trip_id', name='trip_id').mdl-textfield__input
-                option(hidden disabled selected value)
                 each val in trips
                   option(value=val.date, selected=val.date == task.trip_id)=val.date
               label(for='trip_id').mdl-textfield__label Trip
