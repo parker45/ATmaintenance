@@ -18,7 +18,7 @@ block content
                 h3.card_location #{inbox.location}
                 p.card_description #{inbox.description}
                 button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Review
                 button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
       //- li.scrollable_list.recurring
       //-   div.list_title
@@ -84,18 +84,18 @@ block content
               else if task.priority=='Medium'
                 li.card_item.card_tag--medium
                   h3.card_title #{task.title}
+                  h3.card_location #{task.location}
                   br
                   h3.card_date #{task.due_date}
-                  h3.card_location #{task.location}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
               else if task.priority=='Urgent'
                 li.card_item.card_tag--urgent
                   h3.card_title #{task.title}
+                  h3.card_location #{task.location}
                   br
                   h3.card_date #{task.due_date}
-                  h3.card_location #{task.location}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete

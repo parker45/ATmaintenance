@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 2em;
+  max-width: 1200px;
+}
+
+p {
+  padding-top: 10px;
+  margin-left: 5px;
+}

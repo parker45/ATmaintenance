@@ -1,5 +1,47 @@
 extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/index.css')
 block content
-  h1= title
-  p Welcome to #{title}
-  
+  .wrapper
+    h1= title
+    p 
+      | Welcome to our Trail Maintenance Management app beta. Thank you for helping us test our application and be sure to take notes of any feedback you have while using it throughout the day. Feel free to email comments to
+      | #[a(href="mailto:djo96@vt.edu+TrailApp?Subject=Trail%20App%20Beta%20Feedback") djo96@vt.edu].
+      | Please continue reading for walkthroughs of each of the pages.
+
+    h3 Public Report Page
+      p
+        | This page will be public facing and linked to at all of the trailheads. Hikers will be able to select the location they found a problem, then select what kind of problem they encountered from a pre-populated list (Fallen Tree, Shelter Maintenance, Garbage/Litter, Trail Work, Trail Blazing, and Other). They can then add images (not yet implemented) and descriptions. These public reports will show up on the Volunteer page in the "Inbox" column.
+
+    h3 Volunteer Page
+      p
+        | The left column displays the reports from the Public Report page that have yet to be reviewed by an admin. None of the buttons currently do anything for these, but eventually, admins will be able to review, merge, and delete inbox reports.
+      p
+        | The middle column displays all the current tasks. Each task display has a title, location, due date, description, and priority rating. 
+        span(style="background-color: #61BD4F") Green = Low
+        | , 
+        span(style="background-color: #F2D600") Yellow = Medium
+        | , 
+        span(style="background-color: #EB5A46") Red = Urgent
+        |, 
+        span(style="background-color: #C377E0") Purple = Emergency
+        | . The edit button sends the user to a page where they can alter any of the task information. The delete button will remove the task.
+
+      p
+        | The right side of the page allows users to create brand new tasks and has a link to view the trip page, which is described below. 
+
+    h3 Trip Page
+      p 
+        | For the purpose of this demo, this page only displays one Trip. Volunteers can edit the report and change the following fields:
+      ul
+        li Sections covered
+        li Trip Leader
+        li Trip Workers
+        li Volunteer hours (Trail and Driving)
+        li Summary
+        li Comments
+        li Completion status
+
+    h3 Future Plans
+      p
+        | In the future, there will be individual user accounts, the ability to add images, recurring task types, task filtering, integration with OCVT website, ability to create new trips, and the ability to view old trips.
