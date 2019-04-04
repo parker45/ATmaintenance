@@ -22,6 +22,16 @@ exports.admin = function(req, res) {
     });
 };
 
+exports.new_task = function(req, res) {
+    async.parallel({
+        trips: function(callback) {
+            Trip.find(callback)
+        }
+    }, function(err, results) {
+        res.render('new_task', { title: 'OCVT Manager | New Task', error: err, trips:results.trips });
+    });
+};
+
 exports.task_update_get = function(req, res, next) {
     async.parallel({
         task: function(callback) {
@@ -64,7 +74,7 @@ exports.task_create_post = (req, res, next) => {
         title: req.body.title,
         description: req.body.description,
         due_date: req.body.due_date,
-        creation_date: req.body.creation_date,
+        creation_date: new Date(),
         priority: req.body.priority,
         trip_id: req.body.trip_id,
         image_urls: req.body.image_urls,
@@ -74,7 +84,7 @@ exports.task_create_post = (req, res, next) => {
     });
     task.save(function(err){
         if (err) {return next(err); }
-        res.redirect('/')
+        res.redirect('/admin')
     });
 }
 
