@@ -20,10 +20,12 @@ textarea {
 
 .scrollable_list {
   height: calc(100vh - 3rem);
+  min-height: 610px;
 }
 
 .list_container {
   height: calc(100vh - 10.5rem);
+  min-height: 555px;
   display: grid;
   grid-template-rows: auto;
   grid-gap: 1rem;
@@ -45,8 +47,9 @@ textarea {
   background: #00838F !important;
 }
 
-form {
+.form {
   /*height: 88vh;*/
+  min-height: 610px;
 }
 
 .image_card.mdl-card {
