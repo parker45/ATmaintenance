@@ -1,4 +1,4 @@
-var Trip = require('../models/trip')
+var Trip = require('../models/Trip')
 
 var async = require('async')
 

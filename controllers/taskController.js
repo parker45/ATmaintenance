@@ -1,5 +1,5 @@
-var Task = require('../models/task')
-var Trip = require('../models/trip')
+var Task = require('../models/Task')
+var Trip = require('../models/Trip')
 
 var async = require('async');
 
