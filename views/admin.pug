@@ -66,11 +66,11 @@ block content
           i.fas.fa-calendar-alt
           form(action='#')
             div.mdl-textfield.mdl-js-textfield
-              input(type='text', name='title', value='', id="search").mdl-textfield__input.search_field
+              input(type='text', name='search', value='', id="search", onkeyup="searchTasks()").mdl-textfield__input.search_field
               label(for="search").mdl-textfield__label.search_label Search...
               i.material-icons.mdl-textfield__label__icon search
         div.list_container
-          ul.card_list
+          ul(id='task_list').card_list
             each task in data.tasks
               if task.priority=='Low'
                 li.card_item.card_tag--low
