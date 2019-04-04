@@ -16,11 +16,14 @@ var taskDetailRouter = require('./routes/task_detail');
 var reportRouter = require('./routes/report');
 
 var databaseRouter = require('./routes/database');
+var compression = require('compression');
+var helmet = require('helmet')
 
 var app = express();
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://admin:admin@cluster0-f6biw.mongodb.net/test?retryWrites=true';
+var dev_db_url = 'mongodb+srv://admin:admin@cluster0-f6biw.mongodb.net/test?retryWrites=true';
+var mongoDB = process.env.MONGODB_URK || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -33,6 +36,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(compression());
+app.use(helmet())
 app.use(express.static(__dirname + "/public"));
 
 app.use('/', indexRouter);
