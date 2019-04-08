@@ -14,15 +14,21 @@ Express https://expressjs.com/
 ## This Week
 
 **Parker**
-- [ ] Set up Trip displaying, editing, reporting
-- [ ] Deploy to production
+- [ ] Trip List View
+- [ ] Add Trips
+- [ ] Have Tasks display on the Trip they are associated with
+- [ ] Fix Mobile View
+- [ ] Public Reporting
+    - [ ] Fix Mobile UI
+    - [ ] Make adding images work
 
 **Daniel**:
-- [ ] Finish task implementation
-    - [ ] Edit, add, delete
+- [ ] Make UI changes to the admin page
+- [ ] Display location of user submitted tasks
 
 **Campbell**:
 - [ ] Finish the task views
+    - [ ] List, detail
 
 
 "# ATmaintenance" 
