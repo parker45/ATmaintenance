@@ -6,7 +6,7 @@ block extraHeader
 block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
-        h4 What Did You Encouter?
+        h4.title-text What Did You Encounter?
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
             i.fas.fa-tree
@@ -38,25 +38,14 @@ block content
             .mdl-card__title.mdl-card--expand(id="other")
                 h4.mdl-card__title-text Other
     .mdl-cell.mdl-cell--6-col
-        .demo-card-square.mdl-card.mdl-shadow--2dp
-            .mdl-card__title.mdl-card--expand(id="images")
-                h2.mdl-card__title-text Add Images
-            .mdl-card__supporting-text
-                | Add any additional Images.
-            .mdl-card__actions.mdl-card--border
-                label.input-custom-file.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--colored
-                    | ADD IMAGES
-                    input(type='file') 
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+                input#uploadFile.mdl-textfield__input(placeholder='Add Images', type='text', readonly='')
+                .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
+                    i.material-icons photo_camera
+                    input#uploadBtn(type='file')
     .mdl-cell.mdl-cell--6-col
-        .demo-card-square.mdl-card.mdl-shadow--2dp
-            .mdl-card__title.mdl-card--expand(id="description")
-                h2.mdl-card__title-text Addtional Description
-            .mdl-card__supporting-text
-                | Add any additional information.
-            .mdl-card__actions.mdl-card--border
-                .mdl-textfield.mdl-js-textfield
-                    textarea#description-input.mdl-textfield__input(type='text', rows='2')
-                    label.mdl-textfield__label(for="description-input") Input Here... 
+        .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+                input#description-input.mdl-textfield__input(placeholder='Additional Description', type='text', readonly='')
     .mdl-cell.mdl-cell--12-col
         .center-align
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id="submit-btn")
