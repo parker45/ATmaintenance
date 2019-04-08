@@ -1,6 +1,6 @@
-.demo-content h3 {
+/* .demo-content h3 {
     margin-top: 48px;
-  }
+  } */
 
 .demo-ribbon {
     width: 100%;
@@ -46,22 +46,46 @@
     width: 100%;  /* The width is the width of the web page */
     margin: 10px;
    }
+.mdl-card {
+    min-height: 0;
+}
 .center-align {
     text-align: center;
 }
 .demo-card-square.mdl-card {
     width: 95%;
-    height: 275px;
+    height: 100px;
+    background-color: #46B6AC
 }
-.demo-card-square > .mdl-card__title {
+.mdl-card__title {
     color: #fff;
+    padding: 5px;
     
 }
 .selected {
     background-color: #B00020 !important;
 }
 
-#tree {
+.mdl-card__title-text {
+    font-size: 16px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+i {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-top: -10px;
+    padding: 15px !important;
+    font-size: 50px;
+    color: #fff
+}
+
+/* #tree {
     background:
       url('../images/tree.png') bottom right 15% no-repeat #46B6AC;
 }
@@ -92,7 +116,7 @@
 #description {
     background:
     url('../images/pencil.png') bottom right 15% no-repeat rgb(70, 106, 182); 
-}
+} */
 
 label.input-custom-file input[type=file] {
     display: none;

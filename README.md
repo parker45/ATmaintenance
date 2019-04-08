@@ -17,7 +17,6 @@ Express https://expressjs.com/
 - [x] Trip List View
 - [x] Add Trips
 - [ ] Have Tasks display on the Trip they are associated with
-- [ ] Fix Mobile View
 - [ ] Public Reporting
     - [ ] Fix Mobile UI
     - [ ] Make adding images work

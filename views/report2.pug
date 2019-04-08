@@ -1,66 +1,42 @@
 extends layout
 block extraHeader
   link(rel='stylesheet', href='/stylesheets/report.css')
+  link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
   script(src='/javascripts/report.js')
 block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
-        h3 What Type of Problem Did You Encouter?
-    .mdl-cell.mdl-cell--4-col
+        h4 What Did You Encouter?
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-tree
             .mdl-card__title.mdl-card--expand(id="tree")
-                h2.mdl-card__title-text Fallen Tree
-            .mdl-card__supporting-text
-                | A tree has fallen on the trail.
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
-    .mdl-cell.mdl-cell--4-col
+                h4.mdl-card__title-text Fallen Tree
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-campground
             .mdl-card__title.mdl-card--expand(id="shelter")
-                h2.mdl-card__title-text Shelter Maintenance
-            .mdl-card__supporting-text
-                | The Shelter is in need of Maintenance.
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
-    .mdl-cell.mdl-cell--4-col
+                h4.mdl-card__title-text Shelter Maintenance
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-trash-alt
             .mdl-card__title.mdl-card--expand(id="garbage")
-                h2.mdl-card__title-text Garbage/Litter
-            .mdl-card__supporting-text
-                | There is Litter on the Trail.
-                | Trash needs to be emptied
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
-    .mdl-cell.mdl-cell--4-col
+                h4.mdl-card__title-text Garbage
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-hiking
             .mdl-card__title.mdl-card--expand(id="trail")
-                h2.mdl-card__title-text Trail Work
-            .mdl-card__supporting-text
-                | The trail is in need of Maintenance.
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
-    .mdl-cell.mdl-cell--4-col
+                h4.mdl-card__title-text Trail Work
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-brush
             .mdl-card__title.mdl-card--expand(id="blaze")
-                h2.mdl-card__title-text Trail Blazing
-            .mdl-card__supporting-text
-                | The blazes on the trail are faded or not visible.
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
-    .mdl-cell.mdl-cell--4-col
+                h4.mdl-card__title-text Trail Blazing
+    .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp
+            i.fas.fa-question-circle
             .mdl-card__title.mdl-card--expand(id="other")
-                h2.mdl-card__title-text Other
-            .mdl-card__supporting-text
-                | Please explain below.
-            .mdl-card__actions.mdl-card--border
-                a.mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect
-                    | Select
+                h4.mdl-card__title-text Other
     .mdl-cell.mdl-cell--6-col
         .demo-card-square.mdl-card.mdl-shadow--2dp
             .mdl-card__title.mdl-card--expand(id="images")
