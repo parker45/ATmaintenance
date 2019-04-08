@@ -25,6 +25,8 @@ router.get('/task/:id', task_controller.task_detail)
 // GET request lists all trips
 router.get('/trips', trip_controller.trip_list);
 
+// GET add form for trip
+router.get('/trip/create', trip_controller.trip_create_get)
 // POST create
 router.post('/trip/create', trip_controller.trip_create_post)
 

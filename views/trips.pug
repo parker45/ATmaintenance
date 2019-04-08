@@ -1,0 +1,11 @@
+extends layout
+block extraHeader
+    link(rel='stylesheet', href='/stylesheets/report.css')
+block content
+    .mdl-grid
+        .mdl-cell.mdl-cell--12-col
+            ul.demo-list-item.mdl-list
+                each trip in trips
+                    li.mdl-list__item
+                        span.mdl-list__item-primary-content
+                            a(href='/database/trip/'+trip.id) #{trip.date}

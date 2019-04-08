@@ -4,7 +4,13 @@ var async = require('async')
 
 // Display list of all Trips
 exports.trip_list = function(req, res) {
-    res.send('NOT implemented')
+    async.parallel({
+        trips: function(callback){
+            Trip.find(callback);
+        }
+    }, function(err, results){
+        res.render('trips', {title: 'Trips', trips:results.trips})
+    });
 };
 
 // Display detail page for a specific trip.
@@ -25,6 +31,10 @@ exports.trip_detail = function(req, res) {
       });
     
 };
+
+exports.trip_create_get = function(req, res) {
+    res.render('trip_create', {title:'New Trip'});
+}
 
 // Handle trip create POST
 exports.trip_create_post = function(req, res) {
