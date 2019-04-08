@@ -2,3 +2,42 @@ extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/report.css')
 block content
+    .mdl-grid
+            .mdl-cell.mdl-cell--12-col
+                h2 Create Work Trip
+            .mdl-cell.mdl-cell--12-col
+                form(method="POST",action="")
+                    .form-group
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h5 Trip Date
+                            input#date.mdl-textfield__input(type='date', name='date')
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h5 Sections To Be Covered
+                            input#sec.mdl-textfield__input(type='text',name = 'sections_covered')
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h5 Number of Attendees
+                            input#atn.mdl-textfield__input(type='number',name='attendees')
+                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                            h5 Trip Leader
+                            input#leader.mdl-textfield__input(type='text',name='leader')
+                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                            h5 Workers
+                            p Enter A List Separated by Commas
+                            input#workers.mdl-textfield__input(type='text',name='workers')                 
+                        h5 Anticipated Volunteer Hours
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h6 Total
+                            input#total.mdl-textfield__input(type='number',name='total')
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h6 Trail
+                            input#trailhrs.mdl-textfield__input(type='number',name='trail')
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
+                            h6 Driving
+                            input#driving.mdl-textfield__input(type='number',name='driving')
+                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                            h5 Summary
+                            textarea#summary.mdl-textfield__input(type='text',name='summary',rows='3')
+                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                            h5 Comments
+                            textarea#comments.mdl-textfield__input(type='text',name='comments',rows='3')
+                    button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(type="submit") Submit

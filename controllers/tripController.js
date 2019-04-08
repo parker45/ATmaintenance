@@ -37,9 +37,35 @@ exports.trip_create_get = function(req, res) {
 }
 
 // Handle trip create POST
-exports.trip_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Trip create POST');
-};
+exports.trip_create_post = [
+    //build the body correctly
+    (req,res,next) => {
+        req.body.complete = false;
+        req.body.workers=req.body.workers.split(',');
+        req.body.total = new Array(req.body.total,req.body.trail,req.body.driving);
+        req.body.creation_date = new Date();
+        next();
+    },
+
+    (req, res, next) => {
+        var trip = new Trip({
+            date: req.body.date,
+            creation_date: req.body.creation_date,
+            sections_covered: req.body.sections_covered,
+            attendees: req.body.attendees,
+            leader: req.body.leader,
+            workers: req.body.workers,
+            volunteer_hours: req.body.total,
+            summary: req.body.summary,
+            comments: req.body.comments,
+            complete: req.body.complete
+        });
+        trip.save(function(err){
+            if (err) {return next(err); }
+            res.redirect('/database/trips');
+        });
+    }
+];
 
 //Handles trip delete POST
 exports.trip_delete_post = function(req, res) {

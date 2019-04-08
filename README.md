@@ -15,7 +15,7 @@ Express https://expressjs.com/
 
 **Parker**
 - [x] Trip List View
-- [ ] Add Trips
+- [x] Add Trips
 - [ ] Have Tasks display on the Trip they are associated with
 - [ ] Fix Mobile View
 - [ ] Public Reporting
