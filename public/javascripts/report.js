@@ -6,12 +6,12 @@ $('document').ready(function(){
     js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&key=AIzaSyCavNWccud6WHP9hFNR3pWYPjjZ1_oBwqA';
     document.getElementsByTagName('head')[0].appendChild(js_file);
     
-    $(".mdl-button.mdl-button--colored.mdl-js-button.mdl-js-ripple-effect").click(function(){
-        selected = $(this).parent().siblings()[0].id; 
+    $(".demo-card-square.mdl-card.mdl-shadow--2dp").click(function(){
+        selected = $(this).attr('id'); 
         selectedList.push(selected);
         $("#"+selected).toggleClass("selected");
-        console.log(localStorage.getItem("location"));
-        console.log(selectedList)
+        // console.log(localStorage.getItem("location"));
+        // console.log(selectedList)
     });
 
     $("#submit-btn").click(function(){
@@ -20,7 +20,7 @@ $('document').ready(function(){
         const body = buildBody(localStorage.getItem("location"), selectedList, description);
         const url = window.location.origin + "/database/task/create"
         $.post(url,body, function(body,status){
-            window.location = window.location.origin           
+            window.location = window.location.origin + "/report/submitted"           
         });
     });
 
