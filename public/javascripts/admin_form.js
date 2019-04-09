@@ -1,8 +1,26 @@
 $(document).ready(function(){
 
-  var formatted = new Date(date);
-  date = formatted.toDateString();
-  $('#due_date').val(formatted.toISOString().substr(0, 10))
+
+  if (date) {
+    var formatted = new Date(date);
+    date = formatted.toDateString();
+    $('#due_date').val(formatted.toISOString().substr(0, 10));
+  } 
+
+  // Fix for MDL date inputs
+  if (!$('#due_date').value) {
+    $('#due_date')[0].style['color'] = "#FFF";
+  }
+
+  $('#due_date').focus(function() {
+    $('#due_date')[0].style['color'] = "";
+  });
+
+  $('#due_date').blur(function() {
+    if (!$('#due_date')[0].value) {
+      $('#due_date')[0].style['color'] = "#FFF";
+    }
+  });
 
   switch($('#priority')[0].value) {
       case "Low":

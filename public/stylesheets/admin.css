@@ -110,7 +110,7 @@ li, ul {
 }
 
 .list_container {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: calc(100vh - 9rem);
   /*min-height: 230px;*/
   min-height: 288px;
@@ -164,7 +164,7 @@ li, ul {
 }
 
 .card_button {
-  width: 26%;
+  width: 29%;
   border: 0px black solid;
   line-height: 0px !important;
   /*color: #000 !important;*/

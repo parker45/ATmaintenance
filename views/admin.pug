@@ -15,11 +15,11 @@ block content
             each inbox in data.inbox
               li.card_item
                 h3.card_date #{inbox.creation_date}
-                h3.card_location #{inbox.location}
+                //- h3.card_location #{inbox.location}
                 p.card_description #{inbox.description}
-                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank Rank
-                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Review
-                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                a(href='/database/task/'+inbox.id+'/review').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank.a_button Review
+                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
+                button(id=inbox.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.inbox_delete Delete
       //- li.scrollable_list.recurring
       //-   div.list_title
       //-     h2 Recurring
@@ -80,7 +80,7 @@ block content
                   h3.card_date #{task.due_date}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
-                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='Medium'
                 li.card_item.card_tag--medium
                   h3.card_title #{task.title}
@@ -89,7 +89,7 @@ block content
                   h3.card_date #{task.due_date}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
-                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='Urgent'
                 li.card_item.card_tag--urgent
                   h3.card_title #{task.title}
@@ -98,7 +98,7 @@ block content
                   h3.card_date #{task.due_date}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
-                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='Emergency'
                 li.card_item.card_tag--emergency
                   h3.card_title #{task.title}
@@ -107,7 +107,7 @@ block content
                   h3.card_date #{task.due_date}
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
-                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete Delete
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
       li.new
         button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
           i.fas.fa-thumbtack

@@ -1,0 +1,20 @@
+.column_list>li:nth-child(2) {
+  height: calc(60vh - 7rem);
+}
+
+.list_container {
+  height: calc(60vh - 10.5rem);
+  min-height: 280px;
+}
+
+.scrollable_list {
+  height: calc(60vh - 3rem);
+  min-height: 336px;
+}
+
+#map {
+  width: 100%;
+  margin-block-start: 1em;
+  height: calc(40vh - 5rem);
+  min-height: 208px;
+}

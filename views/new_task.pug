@@ -11,10 +11,10 @@ block content
       li.form
         form(action='/database/task/create', id="task_form", method="POST")
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input(type='text', name='title', id="title").mdl-textfield__input
+            input(type='text', name='title', id="title" required autofocus).mdl-textfield__input
             label(for="title").mdl-textfield__label Title
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              textarea(type='text', rows='5', name='description', id='description').mdl-textfield__input
+              textarea(type='text', rows='5', name='description', id='description' required).mdl-textfield__input
               label(for='description').mdl-textfield__label Description
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='date', name='due_date', id="due_date").mdl-textfield__input
