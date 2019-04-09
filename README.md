@@ -24,7 +24,12 @@ Express https://expressjs.com/
 
 **Daniel**:
 - [ ] Make UI changes to the admin page
-- [ ] Display location of user submitted tasks
+- [ x ] Display location of user submitted tasks
+- [ x ] Implement Reviewing for Inbox
+- [ ] Add Tooltips for forms
+- [ ] Create guide page
+- [ ] Create filters for Tasks
+- [ ] Implement merging for Inbox
 
 **Campbell**:
 - [ ] Finish the task views

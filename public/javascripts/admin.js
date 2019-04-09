@@ -1,4 +1,9 @@
 $.date = function(dateObject) {
+
+    if (!dateObject) {
+      return "No Due Date"
+    }
+
     var d = new Date(dateObject);
     var day = d.getDate();
     var month = d.getMonth() + 1;
@@ -41,11 +46,22 @@ function searchTasks() {
 $(document).ready(function() {
   $('.card_date').each(function (index, value) {
     $('.card_date')[index].innerHTML = $.date($('.card_date')[index].innerHTML);
+    if ($('.card_date')[index].innerHTML == "No Due Date") {
+      $('.card_date')[index].style["font-style"] = "italic";
+    }
   });
 
-  $('.card_delete').click(function(){
+  $('.task_delete').click(function(){
     var id = $(this).attr('id');
-    console.log(id);
+    const url = window.location.origin + "/database/task/"+id+"/delete";
+    const body = "";
+    $.post(url, body, function(body,status) {
+        window.location = window.location.origin + "/admin";
+    });
+  });
+
+  $('.inbox_delete').click(function(){
+    var id = $(this).attr('id');
     const url = window.location.origin + "/database/task/"+id+"/delete";
     const body = "";
     $.post(url, body, function(body,status) {
