@@ -38,11 +38,13 @@ block content
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Other
     .mdl-cell.mdl-cell--6-col
-        .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-                input#uploadFile.mdl-textfield__input(placeholder='Add Images', type='text', readonly='')
-                .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
-                    i.material-icons photo_camera
-                    input#uploadBtn(type='file')
+            .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+                    input#uploadFile.mdl-textfield__input(placeholder='Add Images', type='text', readonly='')
+                    .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
+                        i.material-icons photo_camera
+                        form(id="imgur")
+                            input#uploadBtn(type='file', class="imgur", accept="image/*", data-max-size="5000")
+            img(id="userimg", src="#", alt="image")   
     .mdl-cell.mdl-cell--6-col
         .mdl-textfield.mdl-js-textfield.mdl-textfield--file
                 input#description-input.mdl-textfield__input(placeholder='Additional Description', type='text')

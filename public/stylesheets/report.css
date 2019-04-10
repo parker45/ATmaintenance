@@ -66,6 +66,10 @@
     filter: brightness(65%) !important;
 }
 
+#userimg {
+    display: none;
+}
+
 .mdl-card__title-text {
     font-size: 14px;
     margin: 0 auto;
