@@ -35,7 +35,12 @@ function searchTasks() {
     description = li[i].getElementsByClassName("card_description")[0];
     txtValueDescription = description.textContent || description.innerText;
 
-    if (txtValueTitle.toUpperCase().indexOf(filter) > -1 || txtValueDescription.toUpperCase().indexOf(filter) > -1) {
+    date = li[i].getElementsByClassName("card_date")[0];
+    txtValueDate = date.textContent || date.innerText;
+
+    if (txtValueTitle.toUpperCase().indexOf(filter) > -1 
+      || txtValueDescription.toUpperCase().indexOf(filter) > -1 
+      || txtValueDate.toUpperCase().indexOf(filter) > -1) {
       li[i].style.display = "";
     } else {
       li[i].style.display = "none";

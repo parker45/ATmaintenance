@@ -28,7 +28,6 @@ Express https://expressjs.com/
 - [x] Implement Reviewing for Inbox
 - [x] Create guide page
 - [ ] Create filters for Tasks
-- [ ] Implement merging for Inbox
 
 **Campbell**:
 - [ ] Finish the task views

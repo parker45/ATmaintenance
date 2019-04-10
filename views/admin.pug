@@ -5,7 +5,7 @@ block extraHeader
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     script(type='text/javascript', src='/javascripts/admin.js')
 block content
-  section.wrapper
+  section.wrapper(id="tasks")
     ul.column_list
       li.scrollable_list.recurring
         div.list_title
@@ -14,16 +14,12 @@ block content
           select(id='filter_tasks', name='filter_tasks').mdl-textfield__input
             option(value='Newest') Due Date
             option(value='Priority') Priority
-            option(value='Recurring') Recurring
           //- i.fas.fa-tasks
           button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
             //- | #[i.fas.fa-thumbtack]
             | New Task
-          button(onclick="window.location.href = '/database/trip/5ca15010549e5c52f8629e2e';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_trip
-            //- | #[i.fas.fa-hiking]
-            | View Trip
           form(action='#')
-            div.mdl-textfield.mdl-js-textfield
+            div.mdl-textfield.mdl-js-textfield.search_field
               input(type='text', name='search', value='', id="search", onkeyup="searchTasks()").mdl-textfield__input.search_field
               label(for="search").mdl-textfield__label.search_label Search...
               i.material-icons.mdl-textfield__label__icon search
@@ -79,6 +75,7 @@ block content
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
       li.scrollable_list.inbox
+        div(id="inbox").nav_target
         div.list_title
           h2 Inbox
           i.fas.fa-inbox
@@ -89,12 +86,9 @@ block content
                 h3.card_date #{inbox.creation_date}
                 p.card_description #{inbox.description}
                 a(href='/database/task/'+inbox.id+'/review').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_rank.a_button Review
-                button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
+                //- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_button.card_merge Merge
                 button(id=inbox.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.inbox_delete Delete
-      //- li.new
-      //-   button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
-      //-     i.fas.fa-thumbtack
-      //-     h3 New Task
-      //-   button(onclick="window.location.href = '/database/trip/5ca15010549e5c52f8629e2e';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_trip
-      //-     i.fas.fa-hiking
-      //-     h3 View Trip
+    button(id="inbox_button", onclick="window.location.href = '#inbox';").mdl-button.mdl-js-button.mdl-button--fab.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.nav_button 
+      | #[i.fas.fa-inbox]
+    button(id="tasks_button", onclick="window.location.href = '#tasks';").mdl-button.mdl-js-button.mdl-button--fab.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.nav_button 
+      | #[i.fas.fa-tasks]
