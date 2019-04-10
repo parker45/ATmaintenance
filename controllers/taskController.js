@@ -70,6 +70,9 @@ exports.task_detail = function(req, res) {
 // Handle tasks create POST
 exports.task_create_post = (req, res, next) => {
     console.log(req.body);
+    if(req.body.image_urls){
+        req.body.image_urls = new Array(req.body.image_urls)
+    }
     var task = new Task({
         title: req.body.title,
         description: req.body.description,

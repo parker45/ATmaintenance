@@ -117,7 +117,7 @@ function buildBody(position, id_list, description, imageUrl) {
     body.due_date = null;
     body.title = "User Report";
     body.priority = "Low";
-    body.image_urls = new Array(imageUrl);
+    body.image_urls = imageUrl;
     body.type = "Inbox";
     body.completed = false;
     body.trip_id = null;
