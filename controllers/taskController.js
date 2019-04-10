@@ -14,6 +14,9 @@ exports.admin = function(req, res) {
     tasks: function(callback) {
       Task.find({type:'Default'}, callback);
     },
+    all: function(callback) {
+      Task.find({$or:[{type:'Default'}, {type:'Recurring'}]}, callback).sort( { due_date: 1, priority: -1 } );
+    },
     count: function(callback) {
       Task.countDocuments({}, callback);
     }

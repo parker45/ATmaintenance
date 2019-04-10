@@ -11,7 +11,6 @@ block content
   section.wrapper
     ul.column_list
       li.form
-        //- h3 #{task.trip_id}
         form(action='', id="task_form", method="POST")
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='text', name='title', value=(undefined===task ? '' : task.title), id="title").mdl-textfield__input
@@ -62,8 +61,8 @@ block content
               label(for='trip_id').mdl-textfield__label Trip
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='type', name='type').mdl-textfield__input
-                option(value='Default' selected) One Time
-                option(value='Recurring') Recurring
+                option(value='Default', selected=task.type == 'Default') One Time
+                option(value='Recurring', selected=task.type == 'Recurring') Recurring
               label(for='type').mdl-textfield__label Type
         button(type='submit', form='task_form', value='Submit').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.submit_task_button Submit Task
       li.images.scrollable_list

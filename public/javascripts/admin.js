@@ -44,6 +44,20 @@ function searchTasks() {
 }
 
 $(document).ready(function() {
+  $('.card_item').hover(function(event) {
+    if (event.type == "mouseenter") {
+      for (i = 0; i < $(this)[0].getElementsByClassName('card_button').length; i++) {
+        $(this)[0].getElementsByClassName('card_button')[i].style.display = "inline-block";
+      }
+      
+    }
+    else {
+      for (i = 0; i < $(this)[0].getElementsByClassName('card_button').length; i++) {
+        $(this)[0].getElementsByClassName('card_button')[i].style.display = "none";
+      }
+    }
+  });
+
   $('.card_date').each(function (index, value) {
     $('.card_date')[index].innerHTML = $.date($('.card_date')[index].innerHTML);
     if ($('.card_date')[index].innerHTML == "No Due Date") {

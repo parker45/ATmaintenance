@@ -1,36 +1,39 @@
 extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
 block content
   .wrapper
-    h1= title
+    h1 Trail Reporting App Guide
     p 
       | Welcome to our Trail Maintenance Management app beta. Thank you for helping us test our application and be sure to take notes of any feedback you have while using it throughout the day. Feel free to email comments to
       | #[a(href="mailto:djo96@vt.edu+TrailApp?Subject=Trail%20App%20Beta%20Feedback") djo96@vt.edu].
       | Please continue reading for walkthroughs of each of the pages.
 
-    h3 Public Report Page
+    h3 #[a(href='/report') Hiker Report Page]
       p
-        | This page will be public facing and linked to at all of the trailheads. Hikers will be able to select the location they found a problem, then select what kind of problem they encountered from a pre-populated list (Fallen Tree, Shelter Maintenance, Garbage/Litter, Trail Work, Trail Blazing, and Other). They can then add images (not yet implemented) and descriptions. These public reports will show up on the Volunteer page in the "Inbox" column.
+        | This page will be linked to at all of the trailheads. Hikers will be able to select the location they found a problem, then select what kind of problem they encountered from a list (Fallen Tree, Shelter Maintenance, Garbage/Litter, Trail Work, Trail Blazing, and Other). They can then add images (not yet implemented) and descriptions. These reports will show up on the Volunteer page in the "Inbox" column.
 
-    h3 Volunteer Page
+    h3 #[a(href='/admin') Volunteer Page]
       p
-        | The left column displays the reports from the Public Report page that have yet to be reviewed by an admin. None of the buttons currently do anything for these, but eventually, admins will be able to review, merge, and delete inbox reports.
-      p
-        | The middle column displays all the current tasks. Each task display has a title, location, due date, description, and priority rating. 
+        | The Tasks column displays all the current tasks. Each task display has a title, location, due date, description, and priority rating. Tasks with the Calendar icon (
+        i.fas.fa-calendar-alt
+        | ) are recurring tasks. 
+        br 
         span(style="background-color: #61BD4F") Green = Low
-        | , 
+        br
         span(style="background-color: #F2D600") Yellow = Medium
-        | , 
+        br
         span(style="background-color: #EB5A46") Red = Urgent
-        |, 
+        br
         span(style="background-color: #C377E0") Purple = Emergency
-        | . The edit button sends the user to a page where they can alter any of the task information. The delete button will remove the task.
+        br
+        | Tasks can be edited by clicking the edit button and deleted by clicking the delete button. New tasks can be added by using the 'New Task' button at the top right of the column and new trips can be added using the 'New Trips' button.
 
       p
-        | The right side of the page allows users to create brand new tasks and has a link to view the trip page, which is described below. 
+        | The Inbox column displays the reports from the Report page that have yet to be reviewed by an admin. Admins can review reports and make them into tasks, merge reports that are similar to keep all images and descriptions, or remove reports.
 
-    h3 Trip Page
+    h3 #[a(href='/database/trip/5ca15010549e5c52f8629e2e') Trip Page]
       p 
         | For the purpose of this demo, this page only displays one Trip. Volunteers can edit the report and change the following fields:
       ul
@@ -41,7 +44,3 @@ block content
         li Summary
         li Comments
         li Completion status
-
-    h3 Future Plans
-      p
-        | In the future, there will be individual user accounts, the ability to add images, recurring task types, task filtering, integration with OCVT website, ability to create new trips, and the ability to view old trips.
