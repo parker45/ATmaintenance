@@ -287,11 +287,11 @@ li, ul {
   }
 }
 
-@media screen and (max-width: 500px) {
+/*@media screen and (max-width: 500px) {
   .search_field {
     margin-top: -23px !important;
   }
-}
+}*/
 
 @media screen and (max-width: 400px) {
   .new_button {
