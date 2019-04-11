@@ -116,7 +116,7 @@ function buildBody(position, id_list, description, imageUrl) {
     body.creation_date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
     body.due_date = null;
     body.title = "User Report";
-    body.priority = "Low";
+    body.priority = "";
     body.image_urls = imageUrl;
     body.type = "Inbox";
     body.completed = false;
@@ -125,22 +125,22 @@ function buildBody(position, id_list, description, imageUrl) {
     id_list.forEach(element => {
         switch(element) {
             case "tree":
-                body.description = "Tree Blowdown on the trail "+body.description;
+                body.description = "Tree Blowdown on the trail. "+body.description;
                 break;
             case "shelter" :
-                body.description = "The shelter is in need of Maintenance "+body.description;
+                body.description = "The shelter is in need of Maintenance. "+body.description;
                 break;
             case "garbage" :
-                body.description = "There is a garabage issue on the trail " + body.description;
+                body.description = "There is a garabage issue on the trail. " + body.description;
                 break;
             case "trail" :
-                body.description = "The trail is in need of maintenance " + body.description;
+                body.description = "The trail is in need of maintenance. " + body.description;
                 break;
             case "blaze" :
-                body.description = "The blazes on the trail are faded or not visible " + body.description;
+                body.description = "The blazes on the trail are faded or not visible. " + body.description;
                 break
             case "other" :
-                body.description = "Other Trail Issue "+ body.description;
+                body.description = "Other Trail Issue. "+ body.description;
                 break;
             default:
                 break;

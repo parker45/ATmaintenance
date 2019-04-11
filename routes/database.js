@@ -16,6 +16,12 @@ router.get('/task/:id/update', task_controller.task_update_get)
 // POST update
 router.post('/task/:id/update', task_controller.task_update_post)
 
+// GET form to review single task
+router.get('/task/:id/review', task_controller.task_review_get)
+
+// POST form to review single task
+router.post('/task/:id/review', task_controller.task_review_post)
+
 // POST delete
 router.post('/task/:id/delete', task_controller.task_delete_post)
 

@@ -1,11 +1,29 @@
 body {
   font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  background: #a8c4bd;
 }
 
 a {
-  color: #00B7FF;
+  color: #0c94ca;
 }
 
 header {
-	background: #397546 !important;
+  background: #397546 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px grey; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
 }

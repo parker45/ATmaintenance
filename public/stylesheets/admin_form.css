@@ -37,8 +37,13 @@ textarea {
   margin-right: .5rem;
 }
 
+.list_title h2 {
+  line-height: 40px;
+}
+
 .add_image_button {
   background: #43A047 !important;
+  float: right;
 }
 
 .submit_task_button {

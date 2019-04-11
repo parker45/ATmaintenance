@@ -18,21 +18,36 @@ $(document).ready(function(){
 
   $('#due_date').val($.date);
 
+  // Fix for MDL date inputs
+  if (!$('#due_date')[0].value) {
+    $('#due_date')[0].style['color'] = "#FFF";
+  }
+
+  $('#due_date').focus(function() {
+    $('#due_date')[0].style['color'] = "";
+  });
+
+  $('#due_date').blur(function() {
+    if (!$('#due_date')[0].value) {
+      $('#due_date')[0].style['color'] = "#FFF";
+    }
+  });
+
   $('#priority').change(function() {
     switch($('#priority')[0].value) {
-      case "Low":
+      case "1":
         $('#priority')[0].style.background = "#61BD4F";
         $('#priority')[0].style.color = "#FFF";
         break;
-      case "Medium":
+      case "2":
         $('#priority')[0].style.background = "#F2D600";
         $('#priority')[0].style.color = "#FFF";
         break;
-      case "Urgent":
+      case "3":
         $('#priority')[0].style.background = "#EB5A46";
         $('#priority')[0].style.color = "#FFF";
         break;
-      case "Emergency":
+      case "4":
         $('#priority')[0].style.background = "#C377E0";
         $('#priority')[0].style.color = "#FFF";
         break;

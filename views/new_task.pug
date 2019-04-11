@@ -11,10 +11,10 @@ block content
       li.form
         form(action='/database/task/create', id="task_form", method="POST")
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-            input(type='text', name='title', id="title").mdl-textfield__input
+            input(type='text', name='title', id="title" required autofocus).mdl-textfield__input
             label(for="title").mdl-textfield__label Title
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
-              textarea(type='text', rows='5', name='description', id='description').mdl-textfield__input
+              textarea(type='text', rows='5', name='description', id='description' required).mdl-textfield__input
               label(for='description').mdl-textfield__label Description
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='date', name='due_date', id="due_date").mdl-textfield__input
@@ -47,10 +47,10 @@ block content
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='priority', name='priority').mdl-textfield__input
                 option(hidden disabled selected value)
-                option(value='Low').low Low
-                option(value='Medium').medium Medium
-                option(value='Urgent').urgent Urgent
-                option(value='Emergency').emergency Emergency
+                option(value='1').low Low
+                option(value='2').medium Medium
+                option(value='3').urgent Urgent
+                option(value='4').emergency Emergency
               label(for='priority').mdl-textfield__label Priority
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='trip_id', name='trip_id').mdl-textfield__input
