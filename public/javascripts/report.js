@@ -116,7 +116,7 @@ function buildBody(position, id_list, description, imageUrl) {
     body.creation_date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
     body.due_date = null;
     body.title = "User Report";
-    body.priority = "";
+    body.priority = '1';
     body.image_urls = imageUrl;
     body.type = "Inbox";
     body.completed = false;
