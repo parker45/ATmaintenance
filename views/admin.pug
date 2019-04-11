@@ -18,7 +18,8 @@ block content
           button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
             //- | #[i.fas.fa-thumbtack]
             | New Task
-          form(action='#').search_form
+          //- form(onsubmit="return false;").search_form
+          form(action='').search_form
             div.mdl-textfield.mdl-js-textfield.search_field
               input(type='text', name='search', value='', id="search", onkeyup="searchTasks()").mdl-textfield__input.search_field
               label(for="search").mdl-textfield__label.search_label Search...

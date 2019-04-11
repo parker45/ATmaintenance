@@ -57,6 +57,12 @@ function searchTasks() {
 }
 
 $(document).ready(function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchParam = urlParams.get('search');
+
+  $('#search')[0].value = searchParam;
+  searchTasks();
+
   $('.card_item').hover(function(event) {
     if (event.type == "mouseenter") {
       for (i = 0; i < $(this)[0].getElementsByClassName('card_button').length; i++) {
