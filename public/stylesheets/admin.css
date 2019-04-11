@@ -222,6 +222,10 @@ li, ul {
   margin-block-end: 15px;
 }
 
+.card_trip {
+  float: right;
+}
+
 .new_trip {
 
 }
@@ -260,12 +264,20 @@ li, ul {
   margin-top: -32px;
 }
 
+.search_form {
+  margin-left: -25px;
+}
+
 @media screen and (max-width: 1000px) {
   #inbox_button {
     visibility: visible;
   }
   #tasks_button {
     visibility: visible;
+  }
+  .new_button {
+    position: absolute;
+    right: 1.5rem;
   }
 }
 

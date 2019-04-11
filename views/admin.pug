@@ -18,7 +18,7 @@ block content
           button(onclick="window.location.href = '/new_task';").mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.new_button.new_task 
             //- | #[i.fas.fa-thumbtack]
             | New Task
-          form(action='#')
+          form(action='#').search_form
             div.mdl-textfield.mdl-js-textfield.search_field
               input(type='text', name='search', value='', id="search", onkeyup="searchTasks()").mdl-textfield__input.search_field
               label(for="search").mdl-textfield__label.search_label Search...
@@ -26,7 +26,7 @@ block content
         div.list_container
           ul(id='task_list').card_list
             each task in data.all
-              if task.priority=='Low'
+              if task.priority=='1'
                 li.card_item.card_tag--low
                   h3.card_title #{task.title}
                   h3.card_location #{task.location}
@@ -34,11 +34,12 @@ block content
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
-              else if task.priority=='Medium'
+              else if task.priority=='2'
                 li.card_item.card_tag--medium
                   h3.card_title #{task.title}
                   h3.card_location #{task.location}
@@ -46,11 +47,12 @@ block content
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
-              else if task.priority=='Urgent'
+              else if task.priority=='3'
                 li.card_item.card_tag--urgent
                   h3.card_title #{task.title}
                   h3.card_location #{task.location}
@@ -58,11 +60,12 @@ block content
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
-              else if task.priority=='Emergency'
+              else if task.priority=='4'
                 li.card_item.card_tag--emergency
                   h3.card_title #{task.title}
                   h3.card_location #{task.location}
@@ -70,6 +73,60 @@ block content
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
+                  br
+                  p.card_description #{task.description}
+                  a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
+            each task in data.all_null
+              if task.priority=='1'
+                li.card_item.card_tag--low
+                  h3.card_title #{task.title}
+                  h3.card_location #{task.location}
+                  br
+                  if task.type=='Recurring'
+                    i.fas.fa-calendar-alt.recurring_i
+                  h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
+                  br
+                  p.card_description #{task.description}
+                  a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
+              else if task.priority=='2'
+                li.card_item.card_tag--medium
+                  h3.card_title #{task.title}
+                  h3.card_location #{task.location}
+                  br
+                  if task.type=='Recurring'
+                    i.fas.fa-calendar-alt.recurring_i
+                  h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
+                  br
+                  p.card_description #{task.description}
+                  a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
+              else if task.priority=='3'
+                li.card_item.card_tag--urgent
+                  h3.card_title #{task.title}
+                  h3.card_location #{task.location}
+                  br
+                  if task.type=='Recurring'
+                    i.fas.fa-calendar-alt.recurring_i
+                  h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
+                  br
+                  p.card_description #{task.description}
+                  a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
+                  button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
+              else if task.priority=='4'
+                li.card_item.card_tag--emergency
+                  h3.card_title #{task.title}
+                  h3.card_location #{task.location}
+                  br
+                  if task.type=='Recurring'
+                    i.fas.fa-calendar-alt.recurring_i
+                  h3.card_date #{task.due_date}
+                  h3.card_trip #{task.trip_id}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit

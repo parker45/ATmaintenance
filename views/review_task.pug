@@ -53,10 +53,10 @@ block content
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='priority', name='priority').mdl-textfield__input
                 option(hidden disabled selected value)
-                option(value='Low', selected=task.priority == 'Low').low Low
-                option(value='Medium', selected=task.priority == 'Medium').medium Medium
-                option(value='Urgent', selected=task.priority == 'Urgent').urgent Urgent
-                option(value='Emergency', selected=task.priority == 'Emergency').emergency Emergency
+                option(value='1', selected=task.priority == '1').low Low
+                option(value='2', selected=task.priority == '2').medium Medium
+                option(value='3', selected=task.priority == '3').urgent Urgent
+                option(value='4', selected=task.priority == '4').emergency Emergency
               label(for='priority').mdl-textfield__label Priority
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='trip_id', name='trip_id').mdl-textfield__input
