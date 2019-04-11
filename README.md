@@ -23,13 +23,11 @@ Express https://expressjs.com/
     - [ ] Make adding images work
 
 **Daniel**:
-- [ ] Make UI changes to the admin page
+- [x] Make UI changes to the admin page
 - [x] Display location of user submitted tasks
 - [x] Implement Reviewing for Inbox
-- [ ] Add Tooltips for forms
-- [ ] Create guide page
+- [x] Create guide page
 - [ ] Create filters for Tasks
-- [ ] Implement merging for Inbox
 
 **Campbell**:
 - [ ] Finish the task views

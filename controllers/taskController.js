@@ -14,6 +14,25 @@ exports.admin = function(req, res) {
     tasks: function(callback) {
       Task.find({type:'Default'}, callback);
     },
+    all: function(callback) {
+      Task.find({
+        $and: [
+          {$or:[{type:'Default'}, {type:'Recurring'}]},
+          { due_date: { $ne: null } }
+        ]
+      }, callback).sort( { due_date: 1, priority: -1 } );
+      // Task.find({ due_date:null }, callback);
+      // Task.find({ type:'Default' });
+      // Task.find({ date: { $ne: null } }).sort({ date: -1 } });
+    },
+    all_null: function(callback) {
+      Task.find({
+        $and: [
+          {$or:[{type:'Default'}, {type:'Recurring'}]},
+          { due_date:null }
+        ]
+      }, callback).sort( { due_date: 1, priority: -1 } );
+    },
     count: function(callback) {
       Task.countDocuments({}, callback);
     }
