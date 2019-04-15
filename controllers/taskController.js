@@ -96,13 +96,31 @@ exports.task_list = function(req, res) {
       Task.find({type:['Default','Recurring']}, callback);
     }
   }, function(err, results) {
-    res.render('tasks', { title: 'OCVT Manager | Tasks', error: err, data: results });
+    res.render('tasks', { title: 'OCVT Manager | Task', error: err, data: results });
   });
 };
 
 // Display detail page for a specific task.
 exports.task_detail = function(req, res) {
-  res.send('NOT IMPLEMENTED: task detail: ' + req.params.id);
+  async.parallel({
+    task: function(callback) {
+      Task.findById(req.params.id).exec(callback);
+    },
+    trip: function(callback) {
+      Trip.find(callback)
+    }
+  }, function(err, results) {
+    if (err) { return next(err); }
+    if (results.task==null) { // No results.
+      var err = new Error('Task not found');
+      err.status = 404;
+      return next(err);
+    }
+    res.render('task_detail', { title: 'OCVT Manager | Task Details', task:results.task,
+    trip:results.trip });
+  });
+  // res.render('task_detail', { title: 'Task Detail' });
+  // res.send('NOT IMPLEMENTED: task detail: ' + req.params.id);
 };
 
 // Handle tasks create POST
