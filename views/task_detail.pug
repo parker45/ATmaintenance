@@ -1,31 +1,60 @@
 extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/task_detail.css')
-    link(rel='stylesheet', href='/stylesheets/admin.css')
-    link(rel='stylesheet', href='/stylesheets/admin_form.css')
+    link(rel='stylesheet', href='/stylesheets/other_task.css')
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    script(type='text/javascript', src='/javascripts/task_details.js')
 block content
   section.wrapper
     ul.column_list
       li.info
         div.title
-          h2 Fallen Tree
+          h2 #{task.title}
         div.lower
-          h3.bold More Details:
-          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc maximus, nulla ut commodo sagittis, sapien dui mattis dui, non pulvinar lorem felis nec erat. Aliquam egestas, velit at condimentum placerat, sem sapien laoreet mauris, dictum porttitor lacus est nec enim. Vivamus feugiat elit lorem, eu porttitor ante ultrices id. Phasellus suscipit tellus ante, nec dignissim elit imperdiet nec. Nullam fringilla feugiat nisl. Ut pretium, metus venenatis dictum viverra, dui metus finibus enim, ac rhoncus sem lorem vitae mauris. Suspendisse ut venenatis libero. Suspendisse lorem felis, pretium in maximus id, tempor non ipsum<br>
+          h3.bold Description
+          p #{task.description}
         div.lower
-          h3.bold Area:
-          h3 P3
+          h3.bold Due Date
+          h3.date #{task.due_date}
+        div.lower
+          h3.bold Location
+          h3 #{task.location}
         div.lower
           h3.bold Priority
-          h3 High
+          case task.priority
+            when '1'
+              div.priority.low
+                h3 Low
+            when '2'
+              div.priority.medium
+                h3 Medium
+            when '3'
+              div.priority.urgent
+                h3 Urgent
+            when '4'
+              div.priority.emergency
+                h3 Emergency
+            default
+              break
         div.lower
-          h3.bold Trip Info:
-          h3 Part of: P3 Cleanup  
-          h3 Leader: Christina
-          h3 Trip Date: 4/21/19
+          h3.bold Type
+          case task.type
+            when 'Recurring'
+              h3 Recurring
+            when 'Default'
+              h3 One Time
         div.lower
-          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
-          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_join Join trip
+          if task.trip_id != null
+            h3.bold Trip
+            h3 #{task.trip_id}
+            br
+            a(href='/database/trip/5cab8d3665a77c384463a361').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
+            //- a(href='/database/trip/'+task.trip_id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
+            //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_join Join trip
+          else if task.trip_id == null
+            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_add Add to trip
+            
       li.images.scrollable_list
         div.list_title
           h2 Images
