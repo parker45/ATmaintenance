@@ -17,13 +17,23 @@ block content
                         .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                             h5 Number of Attendees
                             input#atn.mdl-textfield__input(type='number',name='attendees')
-                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                             h5 Trip Leader
                             input#leader.mdl-textfield__input(type='text',name='leader')
-                        .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                        .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                             h5 Workers
                             p Enter A List Separated by Commas
-                            input#workers.mdl-textfield__input(type='text',name='workers')                 
+                            input#workers.mdl-textfield__input(type='text',name='workers')     
+                        .mdl-cell.mdl-cell-4-col.mdl-textfield.mdl-js-textfield
+                            h5 Tasks
+                            .scrollcontainer
+                                ul.demo-list-control.mdl-list
+                                    each val in tasks
+                                        li.mdl-list__item
+                                            span.mdl-list__item-primary-content #{val.title}
+                                            span.mdl-list__item-secondary-action
+                                                label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for=val.id)
+                                                    input.mdl-checkbox__input(type='checkbox', id = val.id, name= 'tasks', value=val.id)            
                         h5 Anticipated Volunteer Hours
                         .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                             h6 Total

@@ -1,4 +1,5 @@
 var Trip = require('../models/Trip')
+var Task = require('../models/Task')
 
 var async = require('async')
 
@@ -19,6 +20,9 @@ exports.trip_detail = function(req, res) {
     async.parallel({
         trip: function(callback) {
             Trip.findById(req.params.id).exec(callback);
+        },
+        tasks: function(callback){
+            Task.find({trip_id: req.params.id}).exec(callback)
         }
       }, function(err, results) {
           if (err) { return next(err); }
@@ -27,27 +31,45 @@ exports.trip_detail = function(req, res) {
               err.status = 404;
               return next(err);
           }
-          res.render('trip_detail', { title: 'Trip Info', trip:results.trip });
+          res.render('trip_detail', { title: 'Trip Info', trip:results.trip, tasks:results.tasks });
       });
     
 };
 
 exports.trip_create_get = function(req, res) {
-    res.render('trip_create', {title:'New Trip'});
+
+    async.parallel({
+        tasks: function(callback){
+            Task.find({$and: [
+                {type:{$ne: 'Inbox'}},
+                { trip_id: null }
+              ]}).exec(callback)
+        }
+      }, function(err, results) {
+          if (err) { return next(err); }
+          res.render('trip_create', {title:'New Trip', tasks:results.tasks});
+      });
+
+    
 }
 
 // Handle trip create POST
 exports.trip_create_post = [
-    //build the body correctly
+    //build the body correctly)
     (req,res,next) => {
         req.body.complete = false;
         req.body.workers=req.body.workers.split(',');
         req.body.total = new Array(req.body.total,req.body.trail,req.body.driving);
         req.body.creation_date = new Date();
+        req.body.tasks = Object.values(req.body.tasks);
+        // console.log(req.body.tasks);
         next();
     },
 
     (req, res, next) => {
+        var criteria = {
+            _id:{$in : req.body.tasks}
+        };
         var trip = new Trip({
             date: req.body.date,
             creation_date: req.body.creation_date,
@@ -60,10 +82,16 @@ exports.trip_create_post = [
             comments: req.body.comments,
             complete: req.body.complete
         });
-        trip.save(function(err){
+        trip.save(function(err, tripsaved){
             if (err) {return next(err); }
-            res.redirect('/database/trips');
+            // res.redirect('/database/trips');
+            console.log(tripsaved.id)
+            Task.updateMany(criteria, {"$set":{"trip_id": tripsaved.id}}, function(err){
+                if (err) {return next(err); }
+                res.redirect('/database/trips');
+            });
         });
+        
     }
 ];
 

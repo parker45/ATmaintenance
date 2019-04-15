@@ -1,6 +1,7 @@
 extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/report.css')
+    script(src='/javascripts/trips.js')
 block content
     .mdl-grid
         .mdl-cell.mdl-cell--12-col
@@ -9,7 +10,7 @@ block content
                 each trip in trips
                     li.mdl-list__item
                         span.mdl-list__item-primary-content
-                            a(href='/database/trip/'+trip.id) #{trip.date}
+                            a.dates(href='/database/trip/'+trip.id) #{trip.date}
         .mdl-cell.mdl-cell--12-col
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id='continue-btn', onclick="window.location.href = '/database/trip/create';")
               | Create a New Trip

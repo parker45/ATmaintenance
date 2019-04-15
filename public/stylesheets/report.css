@@ -112,6 +112,11 @@
     right: 0;
 }
 
+.scrollcontainer {
+    height: 150px;
+    overflow: auto;
+}
+
 /* #tree {
     background:
       url('../images/tree.png') bottom right 15% no-repeat #46B6AC;
