@@ -10,6 +10,8 @@ block extraHeader
   script(type='text/javascript', src='/javascripts/admin_form.js')
   script.
     loc="#{task.location}"
+  script.
+    images="#{task.image_urls}"
   script(type='text/javascript', src='/javascripts/review_task.js')
 block content
   section.wrapper
@@ -76,22 +78,12 @@ block content
             h2 Images
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
           ul.list_container
-            li.image_card.mdl-card.mdl-shadow--2dp
-              div.mdl-card__title.mdl-card--expand
-              div.mdl-card__actions
-                span.image_card__filename Image1.jpg
-            li.image_card.mdl-card.mdl-shadow--2dp
-              div.mdl-card__title.mdl-card--expand
-              div.mdl-card__actions
-                span.image_card__filename Image2.jpg
-            li.image_card.mdl-card.mdl-shadow--2dp
-              div.mdl-card__title.mdl-card--expand
-              div.mdl-card__actions
-                span.image_card__filename Image3.jpg
-            li.image_card.mdl-card.mdl-shadow--2dp
-              div.mdl-card__title.mdl-card--expand
-              div.mdl-card__actions
-                span.image_card__filename Image4.jpg
+            each image in task.image_urls
+              if null!=image.image_urls
+                li.image_card.mdl-card.mdl-shadow--2dp
+                  div.mdl-card__title.mdl-card--expand
+                  div.mdl-card__actions
+                    a(href="image", target="_blank").image_card__filename #{image}
         div
           #map
       button(type='submit', form='task_form', value='Submit').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.submit_task_button_narrow Submit Task

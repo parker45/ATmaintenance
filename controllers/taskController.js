@@ -21,9 +21,6 @@ exports.admin = function(req, res) {
           { due_date: { $ne: null } }
         ]
       }, callback).sort( { due_date: 1, priority: -1 } );
-      // Task.find({ due_date:null }, callback);
-      // Task.find({ type:'Default' });
-      // Task.find({ date: { $ne: null } }).sort({ date: -1 } });
     },
     all_null: function(callback) {
       Task.find({
@@ -147,7 +144,6 @@ exports.task_update_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
-    image_urls: null,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location
@@ -167,7 +163,6 @@ exports.task_review_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
-    image_urls: null,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location

@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
   if (date) {
     var formatted = new Date(date);
     date = formatted.toDateString();
@@ -22,6 +21,14 @@ $(document).ready(function(){
     }
   });
 
+  var image_urls = images.split(",");
+
+  for (i = 0; i < image_urls.length; i++) {
+    if (!!image_urls[i]) {
+      $(".image_card.mdl-card")[i].style.background = "url(" + image_urls[i] + ";) center / cover";
+    }
+  }
+
   switch($('#priority')[0].value) {
       case "1":
         $('#priority')[0].style.background = "#61BD4F";
@@ -42,7 +49,7 @@ $(document).ready(function(){
       default:
         $('#priority')[0].style.background = "";
         $('#priority')[0].style.color = "";
-    }
+  }
 
   $('#priority').change(function() {
     switch($('#priority')[0].value) {

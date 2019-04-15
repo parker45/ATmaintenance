@@ -3,6 +3,12 @@ $(document).ready(function() {
     js_file.type = 'text/javascript';
     js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&key=AIzaSyCavNWccud6WHP9hFNR3pWYPjjZ1_oBwqA';
     document.getElementsByTagName('head')[0].appendChild(js_file);
+
+    var image_urls = images.split(",");
+
+    for (i = 0; i < image_urls.length; i++) {
+        $(".image_card.mdl-card")[i].style.background = "url(" + image_urls[i] + ";) center / cover";
+    }
 })
 
 var map;

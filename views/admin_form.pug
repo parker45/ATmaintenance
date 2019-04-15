@@ -6,6 +6,8 @@ block extraHeader
   script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
   script.
     date="#{task.due_date}"
+  script.
+    images="#{task.image_urls}"
   script(type='text/javascript', src='/javascripts/admin_form.js')
 block content
   section.wrapper
@@ -57,7 +59,7 @@ block content
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='trip_id', name='trip_id').mdl-textfield__input
                 each val in trips
-                  option(value=val.date, selected=val.date == task.trip_id)=val.date
+                  option(value=val.id, selected=val.id == task.trip_id)=val.date
               label(for='trip_id').mdl-textfield__label Trip
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='type', name='type').mdl-textfield__input
@@ -70,20 +72,10 @@ block content
           h2 Images
           button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
         ul.list_container
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image1.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image2.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image3.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image4.jpg
+          if undefined!=task.image_urls
+            each image in task.image_urls
+              li.image_card.mdl-card.mdl-shadow--2dp
+                div.mdl-card__title.mdl-card--expand
+                div.mdl-card__actions
+                  a(href=image, target="_blank").image_card__filename #{image}
       button(type='submit', form='task_form', value='Submit').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.submit_task_button_narrow Submit Task
