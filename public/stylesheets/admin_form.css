@@ -72,6 +72,10 @@ textarea {
   opacity: 0;
 }
 
+.hidden_field {
+  display: none;
+}
+
 /*#userimg {
     display: none;
 }

@@ -22,10 +22,13 @@ $(document).ready(function(){
   });
 
   var image_urls = images.split(",");
-
+  var skipCounter = 0;
   for (i = 0; i < image_urls.length; i++) {
     if (!!image_urls[i]) {
-      $(".image_card.mdl-card")[i].style.background = "url(" + image_urls[i] + ";) center / cover";
+      $(".image_card.mdl-card")[i - skipCounter].style.background = "url(" + image_urls[i] + ";) center / cover";
+    }
+    else {
+      skipCounter++;
     }
   }
 
@@ -73,6 +76,12 @@ $(document).ready(function(){
         $('#priority')[0].style.background = "";
         $('#priority')[0].style.color = "";
     }
+  });
+
+  $('#trip_date')[0].value = $("#trip_id option:selected").text();
+
+  $('#trip_id').change(function() {
+    $('#trip_date')[0].value = $("#trip_id option:selected").text();
   });
 
   $("input[type=file]").on("change", function(){
@@ -132,6 +141,7 @@ $(document).ready(function(){
               var parsed = JSON.parse(response)
               console.log(parsed.data.link);
               imageUrl = parsed.data.link;
+              $('#image_url')[0].value = imageUrl;
           });
       }
   });

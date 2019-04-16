@@ -122,10 +122,10 @@ exports.task_detail = function(req, res) {
 
 // Handle tasks create POST
 exports.task_create_post = (req, res, next) => {
-    console.log(req.body);
-    if(req.body.image_urls){
-        req.body.image_urls = new Array(req.body.image_urls)
-    }
+    console.log(new Array(req.body.image_url));
+    // if(!req.body.image_urls) {
+    // req.body.image_urls = new Array(req.body.image_url)
+    // }
     var task = new Task({
         title: req.body.title,
         description: req.body.description,
@@ -133,11 +133,13 @@ exports.task_create_post = (req, res, next) => {
         creation_date: new Date(),
         priority: req.body.priority,
         trip_id: req.body.trip_id,
-        image_urls: req.body.image_urls,
+        trip_date: req.body.trip_date,
+        image_urls: new Array(req.body.image_url),
         type: req.body.type,
         completed: req.body.completed,
         location: req.body.location
     });
+
     task.save(function(err){
         if (err) {return next(err); }
         res.redirect('/admin')
@@ -162,20 +164,21 @@ exports.task_update_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
+    trip_date: req.body.trip_date,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location
   }
+
+  Task.findByIdAndUpdate(req.params.id, { $push: {image_urls: req.body.image_url} }, {}, function(err,thetask){
+    if(err) { return next(err);}
+  })
+
   Task.findByIdAndUpdate(req.params.id, task, {}, function(err,thetask){
     if(err) { return next(err);}
     //Successful redirect to admin page
     res.redirect('/admin');
   })
-  Task.findOneAndUpdate(
-    { _id: req.params.id },
-    { $push: { image_urls: req.body.add_image } },
-    done
-  );
 };
 
 exports.task_review_post = function(req, res) {
@@ -186,10 +189,16 @@ exports.task_review_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
+    trip_date: req.body.trip_date,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location
   }
+
+  Task.findByIdAndUpdate(req.params.id, { $push: {image_urls: req.body.image_url} }, {}, function(err,thetask){
+    if(err) { return next(err);}
+  })
+
   Task.findByIdAndUpdate(req.params.id, task, {}, function(err,thetask){
     if(err) { return next(err);}
     //Successful redirect to admin page

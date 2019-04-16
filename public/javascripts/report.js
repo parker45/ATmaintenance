@@ -19,7 +19,6 @@ $('document').ready(function(){
                 selectedList.push(value.id);
             }
         });
-        alert(selectedList);
         const description = $('#description-input').val();
         console.log(description);
         const body = buildBody(localStorage.getItem("location"), selectedList, description, imageUrl);

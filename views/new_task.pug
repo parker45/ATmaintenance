@@ -56,39 +56,22 @@ block content
               select(id='trip_id', name='trip_id').mdl-textfield__input
                 option(hidden disabled selected value)
                 each val in trips
-                  option(value=val.date)=val.date
+                  option(value=val.id)=val.date
               label(for='trip_id').mdl-textfield__label Trip
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
               select(id='type', name='type').mdl-textfield__input
                 option(value='Default' selected) One Time
                 option(value='Recurring') Recurring
               label(for='type').mdl-textfield__label Type
+
+          input(type='text', name='image_url', id="image_url").hidden_field
+          input(type='text', name='trip_date', id="trip_date").hidden_field
         button(type='submit', form='task_form', value='Submit').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.submit_task_button Submit Task
       li.images.scrollable_list
         div.list_title
           h2 Images
-          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+          .upload-button-wrapper
+            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+            input(id='add_image', type='file', name='add_image')
         ul.list_container
-          //- each image in task.image_urls
-          //-   li.image_card.mdl-card.mdl-shadow--2dp
-          //-     div.mdl-card__title.mdl-card--expand
-          //-     div.mdl-card__actions
-          //-       span.image_card__filename #{image}
-        //- ul.list_container
-          //- li.image_card.mdl-card.mdl-shadow--2dp
-          //-   div.mdl-card__title.mdl-card--expand
-          //-   div.mdl-card__actions
-          //-     span.image_card__filename Image1.jpg
-          //- li.image_card.mdl-card.mdl-shadow--2dp
-          //-   div.mdl-card__title.mdl-card--expand
-          //-   div.mdl-card__actions
-          //-     span.image_card__filename Image2.jpg
-          //- li.image_card.mdl-card.mdl-shadow--2dp
-          //-   div.mdl-card__title.mdl-card--expand
-          //-   div.mdl-card__actions
-          //-     span.image_card__filename Image3.jpg
-          //- li.image_card.mdl-card.mdl-shadow--2dp
-          //-   div.mdl-card__title.mdl-card--expand
-          //-   div.mdl-card__actions
-          //-     span.image_card__filename Image4.jpg
       button(type='submit', form='task_form', value='Submit').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.submit_task_button_narrow Submit Task

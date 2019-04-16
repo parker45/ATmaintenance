@@ -9,6 +9,7 @@ var TaskSchema = new Schema(
         creation_date: {type: Date, required: true},
         priority: {type: String, enum:['1', '2', '3', '4'], default: '1', required: true},
         trip_id: {type: String},
+        trip_date: {type: String},
         image_urls:{type:[String]},
         type: {type: String, enum:['Inbox', 'Recurring', 'Default'], default: 'Default'},
         completed: {type: Boolean},
