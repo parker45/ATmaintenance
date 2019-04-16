@@ -61,8 +61,12 @@ exports.trip_create_post = [
         req.body.workers=req.body.workers.split(',');
         req.body.total = new Array(req.body.total,req.body.trail,req.body.driving);
         req.body.creation_date = new Date();
-        req.body.tasks = Object.values(req.body.tasks);
-        // console.log(req.body.tasks);
+        if(!(req.body.tasks instanceof Array)){
+            req.body.tasks = new Array(req.body.tasks)
+        }
+        else {
+            req.body.tasks = Object.values(req.body.tasks);
+        }
         next();
     },
 
@@ -83,8 +87,7 @@ exports.trip_create_post = [
             complete: req.body.complete
         });
         trip.save(function(err, tripsaved){
-            if (err) {return next(err); }
-            // res.redirect('/database/trips');
+            if (err) {return next(err);}
             console.log(tripsaved.id)
             Task.updateMany(criteria, {"$set":{"trip_id": tripsaved.id}}, function(err){
                 if (err) {return next(err); }
@@ -104,6 +107,14 @@ exports.trip_update_get = function(req, res){
     async.parallel({
         trip: function(callback) {
             Trip.findById(req.params.id).exec(callback);
+        },
+        tasks: function(callback){
+            Task.find({$or:
+                    [
+                        {$and: [{type:{$ne: 'Inbox'}},{ trip_id: null }]},
+                        {trip_id: req.params.id}
+                    ]
+                }).exec(callback)
         }
       }, function(err, results) {
           if (err) { return next(err); }
@@ -112,7 +123,7 @@ exports.trip_update_get = function(req, res){
               err.status = 404;
               return next(err);
           }
-          res.render('trip_edit', { title: 'Trip Edit', trip:results.trip });
+          res.render('trip_edit', { title: 'Trip Edit', trip:results.trip, tasks:results.tasks });
       });
 }
 //Handles trip update POST
@@ -120,7 +131,7 @@ exports.trip_update_post = [
     
     // Convert the workers and volunteer hours to an array
     (req, res, next) => {
-        console.log(req.body)
+        // console.log(req.body)
         if(!(req.body.workers instanceof Array)){
             if(typeof req.body.workers==='undefined')
             req.body.workers=[];
@@ -135,11 +146,21 @@ exports.trip_update_post = [
         }
         req.body.complete = (req.body.complete === 'on' ? true : false);
         req.body.attendees = req.body.workers.length + 1;
+        if(!(req.body.tasks instanceof Array)){
+            req.body.tasks = new Array(req.body.tasks)
+        }
+        else {
+            req.body.tasks = Object.values(req.body.tasks);
+        }
+        
         next();
     },
 
     (req, res, next) => {
-        console.log(req.body)
+        // console.log(req.body)
+        var criteriaUpdate = {
+            _id:{$in : req.body.tasks}
+        };
         var trip = {
             date: req.body.date,
             creation_date: null,
@@ -154,8 +175,34 @@ exports.trip_update_post = [
         }
         Trip.findByIdAndUpdate(req.params.id, trip, {}, function(err,thetrip){
             if(err) { return next(err);}
-            //Successful redirect to trip detail page
-            res.redirect('/database/trip/'+req.params.id);
+            //This first finds the tasks that were originally associated with this trip
+            async.parallel({
+                tasks: function(callback){
+                    Task.find({trip_id: req.params.id}).exec(callback)
+                }
+              }, function(err, results) {
+                  if (err) { return next(err); }
+                  //Then it compares the old vs the new and finds the difference
+                  var old = []
+                  results.tasks.forEach(element => {
+                      old.push(element.id);
+                  });
+                  //This gets the difference of the two arrays
+                  var diff = old.filter(x => !req.body.tasks.includes(x));
+                  //Then we build a different search criteria 
+                  //We do this to UN-select the tasks that may have been removed
+                  var otherCriteria = {_id:{$in : diff}}
+                  //The first query adds new tasks
+                  Task.updateMany(criteriaUpdate, {"$set":{"trip_id": thetrip.id}}, function(err){
+                    if (err) {return next(err); }
+                    //The second query removes old tasks that were unselected
+                    Task.updateMany(otherCriteria, {"$set":{"trip_id": null}}, function(err){
+                        if (err) {return next(err); }
+                        res.redirect('/database/trip/'+req.params.id);
+                    });
+                });
+            });
+               
         })
     }
 ];

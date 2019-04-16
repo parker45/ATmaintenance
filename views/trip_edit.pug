@@ -20,13 +20,23 @@ block content
                     .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                         h5 Number of Attendees
                         input#atn.mdl-textfield__input(type='number',name='attendees',value=(undefined === trip ? '': trip.attendees))
-                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                         h5 Trip Leader
                         input#leader.mdl-textfield__input(type='text',name='leader',value=(undefined === trip ? '': trip.leader))
-                    .mdl-cell.mdl-cell--6-col.mdl-textfield.mdl-js-textfield
+                    .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                         h5 Workers
                         p Enter List Separated by commas
                         input#workers.mdl-textfield__input(type='text',name='workers',value=(undefined === trip ? '': trip.workers.toString()))                 
+                    .mdl-cell.mdl-cell-4-col.mdl-textfield.mdl-js-textfield
+                        h5 Tasks
+                        .scrollcontainer
+                            ul.demo-list-control.mdl-list
+                                each val in tasks
+                                    li.mdl-list__item
+                                        span.mdl-list__item-primary-content #{val.title}
+                                        span.mdl-list__item-secondary-action
+                                            label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect(for=val.id)
+                                                input.mdl-checkbox__input(type='checkbox', id = val.id, name= 'tasks', value=val.id, checked= (val.trip_id === trip.id))
                     h5 Volunteer Hours
                     .mdl-cell.mdl-cell--4-col.mdl-textfield.mdl-js-textfield
                         h6 Total

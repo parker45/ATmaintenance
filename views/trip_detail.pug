@@ -20,6 +20,10 @@ block content
                 li Total: #{trip.volunteer_hours[0]}
                 li Trail: #{trip.volunteer_hours[1]}
                 li Driving: #{trip.volunteer_hours[2]}
+            h5 Tasks
+            ul
+                each val in tasks
+                    li=val.title
             h5 Summary: #{trip.summary}
             h5 Comments: #{trip.comments}
             h5 Complete: #{trip.complete}
