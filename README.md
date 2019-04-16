@@ -27,7 +27,8 @@ Express https://expressjs.com/
 - [x] Implement Reviewing for Inbox
 - [x] Create guide page
 - [x] Display images in forms
-- [ ] Link tasks to Task Detail pages
+- [x] Link tasks to Task Detail pages
+- [x] Implement Adding Images from Forms
 
 **Campbell**:
 - [ ] Finish the task views
