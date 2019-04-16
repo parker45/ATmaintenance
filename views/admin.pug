@@ -29,7 +29,7 @@ block content
             each task in data.all
               if task.priority=='1'
                 li.card_item.card_tag--low
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -42,7 +42,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='2'
                 li.card_item.card_tag--medium
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -55,7 +55,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='3'
                 li.card_item.card_tag--urgent
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -68,7 +68,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='4'
                 li.card_item.card_tag--emergency
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -82,7 +82,7 @@ block content
             each task in data.all_null
               if task.priority=='1'
                 li.card_item.card_tag--low
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -95,7 +95,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='2'
                 li.card_item.card_tag--medium
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -108,7 +108,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='3'
                 li.card_item.card_tag--urgent
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
@@ -121,7 +121,7 @@ block content
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='4'
                 li.card_item.card_tag--emergency
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
