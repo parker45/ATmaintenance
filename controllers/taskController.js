@@ -21,9 +21,6 @@ exports.admin = function(req, res) {
           { due_date: { $ne: null } }
         ]
       }, callback).sort( { due_date: 1, priority: -1 } );
-      // Task.find({ due_date:null }, callback);
-      // Task.find({ type:'Default' });
-      // Task.find({ date: { $ne: null } }).sort({ date: -1 } });
     },
     all_null: function(callback) {
       Task.find({
@@ -125,10 +122,10 @@ exports.task_detail = function(req, res) {
 
 // Handle tasks create POST
 exports.task_create_post = (req, res, next) => {
-    console.log(req.body);
-    if(req.body.image_urls){
-        req.body.image_urls = new Array(req.body.image_urls)
-    }
+    console.log(new Array(req.body.image_url));
+    // if(!req.body.image_urls) {
+    // req.body.image_urls = new Array(req.body.image_url)
+    // }
     var task = new Task({
         title: req.body.title,
         description: req.body.description,
@@ -136,11 +133,13 @@ exports.task_create_post = (req, res, next) => {
         creation_date: new Date(),
         priority: req.body.priority,
         trip_id: req.body.trip_id,
-        image_urls: req.body.image_urls,
+        trip_date: req.body.trip_date,
+        image_urls: new Array(req.body.image_url),
         type: req.body.type,
         completed: req.body.completed,
         location: req.body.location
     });
+
     task.save(function(err){
         if (err) {return next(err); }
         res.redirect('/admin')
@@ -165,11 +164,16 @@ exports.task_update_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
-    image_urls: null,
+    trip_date: req.body.trip_date,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location
   }
+
+  Task.findByIdAndUpdate(req.params.id, { $push: {image_urls: req.body.image_url} }, {}, function(err,thetask){
+    if(err) { return next(err);}
+  })
+
   Task.findByIdAndUpdate(req.params.id, task, {}, function(err,thetask){
     if(err) { return next(err);}
     //Successful redirect to admin page
@@ -185,11 +189,16 @@ exports.task_review_post = function(req, res) {
     creation_date: null,
     priority: req.body.priority,
     trip_id: req.body.trip_id,
-    image_urls: null,
+    trip_date: req.body.trip_date,
     type: req.body.type,
     completed: req.body.completed,
     location: req.body.location
   }
+
+  Task.findByIdAndUpdate(req.params.id, { $push: {image_urls: req.body.image_url} }, {}, function(err,thetask){
+    if(err) { return next(err);}
+  })
+
   Task.findByIdAndUpdate(req.params.id, task, {}, function(err,thetask){
     if(err) { return next(err);}
     //Successful redirect to admin page

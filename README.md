@@ -26,7 +26,7 @@ Express https://expressjs.com/
 - [x] Display location of user submitted tasks
 - [x] Implement Reviewing for Inbox
 - [x] Create guide page
-- [ ] Display images in forms
+- [x] Display images in forms
 - [ ] Link tasks to Task Detail pages
 
 **Campbell**:

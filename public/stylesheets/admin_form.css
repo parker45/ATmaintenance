@@ -57,6 +57,48 @@ textarea {
   min-height: 610px;
 }
 
+.upload-button-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  float: right; 
+}
+
+.upload-button-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.hidden_field {
+  display: none;
+}
+
+/*#userimg {
+    display: none;
+}
+
+.mdl-button--file input {
+  cursor: pointer;
+  height: 100%;
+  right: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 4;
+}
+  
+.mdl-textfield--file .mdl-textfield__input {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+}
+.mdl-textfield--file .mdl-button--file {
+  right: 0;
+}*/
+
 .image_card.mdl-card {
   background: url('../images/test.jpg') center / cover;
 }

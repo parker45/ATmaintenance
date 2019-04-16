@@ -1,7 +1,7 @@
 extends layout
 block extraHeader
     link(rel='stylesheet', href='/stylesheets/admin.css')
-    link(rel='stylesheet', href='/stylesheets/styles.css')
+    //- link(rel='stylesheet', href='/stylesheets/styles.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     script(type='text/javascript', src='/javascripts/admin.js')
 block content
@@ -29,52 +29,52 @@ block content
             each task in data.all
               if task.priority=='1'
                 li.card_item.card_tag--low
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='2'
                 li.card_item.card_tag--medium
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='3'
                 li.card_item.card_tag--urgent
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='4'
                 li.card_item.card_tag--emergency
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
@@ -82,52 +82,52 @@ block content
             each task in data.all_null
               if task.priority=='1'
                 li.card_item.card_tag--low
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='2'
                 li.card_item.card_tag--medium
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='3'
                 li.card_item.card_tag--urgent
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
                   button(id=task.id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_delete.task_delete Delete
               else if task.priority=='4'
                 li.card_item.card_tag--emergency
-                  h3.card_title #{task.title}
+                  a(href="/database/task/"+task.id).card_title  #{task.title}
                   h3.card_location #{task.location}
                   br
                   if task.type=='Recurring'
                     i.fas.fa-calendar-alt.recurring_i
                   h3.card_date #{task.due_date}
-                  h3.card_trip #{task.trip_id}
+                  h3.card_trip #{task.trip_date}
                   br
                   p.card_description #{task.description}
                   a(href='/database/task/'+task.id+'/update').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.card_button.card_edit.a_button Edit
