@@ -171,6 +171,11 @@ exports.task_update_post = function(req, res) {
     //Successful redirect to admin page
     res.redirect('/admin');
   })
+  Task.findOneAndUpdate(
+    { _id: req.params.id },
+    { $push: { image_urls: req.body.add_image } },
+    done
+  );
 };
 
 exports.task_review_post = function(req, res) {

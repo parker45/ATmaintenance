@@ -74,4 +74,65 @@ $(document).ready(function(){
         $('#priority')[0].style.color = "";
     }
   });
+
+  $("input[type=file]").on("change", function(){
+      var $files = $(this).get(0).files;
+      console.log($files);
+      // document.getElementById("uploadFile").value = $files[0].name;
+      // if ($files.length) {
+      //     var reader = new FileReader();
+
+      //     reader.onload = function (e) {
+      //         $('#userimg')
+      //             .css({'display':'unset'})
+      //             .attr('src', e.target.result)
+      //             .width(150)
+      //             .height(150);
+      //     };
+
+      //     reader.readAsDataURL($files[0]);
+      // }
+      
+      if ($files.length) {
+
+          // Reject big files
+          if ($files[0].size > $(this).data("max-size") * 1024) {
+              console.log("Please select a smaller file");
+              return false;
+          }
+
+          // Begin file upload
+          console.log("Uploading file to Imgur..");
+
+          // Replace ctrlq with your own API key
+          var apiUrl = 'https://api.imgur.com/3/image';
+          var apiKey = '326f36253761cdb';
+
+          var settings = {
+              async: true,
+              crossDomain: true,
+              processData: false,
+              contentType: false,
+              type: 'POST',
+              url: apiUrl,
+              headers: {
+              Authorization: 'Client-ID ' + apiKey,
+              Accept: 'application/json'
+              },
+              mimeType: 'multipart/form-data'
+          };
+
+          var formData = new FormData();
+          formData.append("image", $files[0]);
+          settings.data = formData;
+
+          // Response contains stringified JSON
+          // Image URL available at response.data.link
+          $.ajax(settings).done(function(response) {
+              var parsed = JSON.parse(response)
+              console.log(parsed.data.link);
+              imageUrl = parsed.data.link;
+          });
+      }
+  });
 });

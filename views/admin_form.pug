@@ -70,7 +70,9 @@ block content
       li.images.scrollable_list
         div.list_title
           h2 Images
-          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+          .upload-button-wrapper
+            button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+            input(type='file', name='add_image')
         ul.list_container
           if undefined!=task.image_urls
             each image in task.image_urls
