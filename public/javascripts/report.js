@@ -9,11 +9,16 @@ $('document').ready(function(){
     
     $(".demo-card-square.mdl-card.mdl-shadow--2dp").click(function(){
         selected = $(this).attr('id'); 
-        selectedList.push(selected);
+        // selectedList.push(selected);
         $("#"+selected).toggleClass("selected");
     });
 
     $("#submit-btn").click(function(){
+        $(".demo-card-square.mdl-card.mdl-shadow--2dp").each(function(index,value) {
+            if (value.className.includes("selected")) {
+                selectedList.push(value.id);
+            }
+        });
         const description = $('#description-input').val();
         console.log(description);
         const body = buildBody(localStorage.getItem("location"), selectedList, description, imageUrl);
