@@ -23,7 +23,8 @@ block content
             h5 Tasks
             ul
                 each val in tasks
-                    li=val.title
+                    li
+                        a(href='/database/task/'+val.id) #{val.title}
             h5 Summary: #{trip.summary}
             h5 Comments: #{trip.comments}
             h5 Complete: #{trip.complete}
