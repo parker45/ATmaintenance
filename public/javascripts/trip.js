@@ -1,6 +1,5 @@
 var formatted = new Date(date);
-date = formatted.toDateString();
 window.onload = function(){
-    $('h3').html(date + " Work Trip")
+    $('h3').html(formatted.toISOString().substr(0, 10) + " Work Trip")
     $('#date').val(formatted.toISOString().substr(0, 10))
 }
