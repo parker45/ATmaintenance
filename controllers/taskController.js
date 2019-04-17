@@ -156,7 +156,8 @@ exports.task_delete_post = function(req, res) {
 };
 
 //Handles task update POST
-exports.task_update_post = function(req, res) {
+exports.task_update_post = function(req, res, next) {
+
   var task = {
     title: req.body.title,
     description: req.body.description,

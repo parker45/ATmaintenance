@@ -4,6 +4,8 @@ block extraHeader
     link(rel='stylesheet', href='/stylesheets/other_task.css')
     link(rel='stylesheet', href='/stylesheets/styles.css')
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    script.
+      images="#{task.image_urls}"
     script(type='text/javascript', src='/javascripts/task_details.js')
 block content
   section.wrapper
@@ -47,7 +49,7 @@ block content
         div.lower
           if task.trip_id != null
             h3.bold Trip
-            h3 #{task.trip_id}
+            h3 #{task.trip_date}
             br
             a(href='/database/trip/5cab8d3665a77c384463a361').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
             //- a(href='/database/trip/'+task.trip_id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
@@ -58,21 +60,12 @@ block content
       li.images.scrollable_list
         div.list_title
           h2 Images
-          button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
+          //- button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add_image_button Add Image
         ul.list_container
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image1.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image2.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image3.jpg
-          li.image_card.mdl-card.mdl-shadow--2dp
-            div.mdl-card__title.mdl-card--expand
-            div.mdl-card__actions
-              span.image_card__filename Image4.jpg
+          if undefined!=task.image_urls
+            each image in task.image_urls
+              if !!image
+                li.image_card.mdl-card.mdl-shadow--2dp
+                  div.mdl-card__title.mdl-card--expand
+                  div.mdl-card__actions
+                    a(href=image, target="_blank").image_card__filename #{image}

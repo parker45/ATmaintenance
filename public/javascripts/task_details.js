@@ -27,4 +27,16 @@ $(document).ready(function() {
       $('.date')[index].style["font-style"] = "italic";
     }
   });
+
+  var image_urls = images.split(",");
+  var skipCounter = 0;
+  for (i = 0; i < image_urls.length; i++) {
+    if (!!image_urls[i]) {
+      $(".image_card.mdl-card")[i - skipCounter].style.background = "url(" + image_urls[i] + ";) center / cover";
+    }
+    else {
+      skipCounter++;
+    }
+  }
+
 });
