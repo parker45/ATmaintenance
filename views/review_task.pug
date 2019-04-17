@@ -17,7 +17,6 @@ block content
   section.wrapper
     ul.column_list
       li.form
-        h1 #{task.image_urls}
         form(action='', id="task_form", method="POST")
           div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
             input(type='text', name='title', value=(undefined===task ? '' : task.title), id="title").mdl-textfield__input
