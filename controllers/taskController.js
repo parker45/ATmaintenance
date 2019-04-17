@@ -122,7 +122,7 @@ exports.task_detail = function(req, res) {
 
 // Handle tasks create POST
 exports.task_create_post = (req, res, next) => {
-    console.log(new Array(req.body.image_url));
+    console.log(new Array(req.body.image_urls));
     // if(!req.body.image_urls) {
     // req.body.image_urls = new Array(req.body.image_url)
     // }
@@ -134,7 +134,7 @@ exports.task_create_post = (req, res, next) => {
         priority: req.body.priority,
         trip_id: req.body.trip_id,
         trip_date: req.body.trip_date,
-        image_urls: new Array(req.body.image_url),
+        image_urls: new Array(req.body.image_urls),
         type: req.body.type,
         completed: req.body.completed,
         location: req.body.location

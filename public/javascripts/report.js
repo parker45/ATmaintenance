@@ -21,6 +21,7 @@ $('document').ready(function(){
         });
         const description = $('#description-input').val();
         console.log(description);
+        console.log(imageUrl)
         const body = buildBody(localStorage.getItem("location"), selectedList, description, imageUrl);
         const url = window.location.origin + "/database/task/create"
         $.post(url,body, function(body,status){
