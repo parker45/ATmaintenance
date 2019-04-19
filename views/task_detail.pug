@@ -51,7 +51,7 @@ block content
             h3.bold Trip
             h3 #{task.trip_date}
             br
-            a(href='/database/trip/5cab8d3665a77c384463a361').mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
+            a(href='/database/trip/'+task.trip_id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
             //- a(href='/database/trip/'+task.trip_id).mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_info Trip info
             //-   button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.task_button.card_join Join trip
           else if task.trip_id == null
