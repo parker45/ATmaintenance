@@ -8,11 +8,15 @@ $('document').ready(function(){
     document.getElementsByTagName('head')[0].appendChild(js_file);
 
     $('#continue-btn').prop('disabled', true)
+
+    $("#submit-btn").prop('disabled', true)
     
     $(".demo-card-square.mdl-card.mdl-shadow--2dp").click(function(){
         selected = $(this).attr('id'); 
         // selectedList.push(selected);
         $("#"+selected).toggleClass("selected");
+        $("#submit-btn").prop('disabled', false)
+
     });
 
     $("#submit-btn").click(function(){
