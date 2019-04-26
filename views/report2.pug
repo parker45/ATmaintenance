@@ -7,6 +7,7 @@ block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
         h4.title-text What Did You Encounter?
+        h7 Select All That Apply
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
         .demo-card-square.mdl-card.mdl-shadow--2dp(id="tree")
             i.fas.fa-tree
@@ -47,7 +48,7 @@ block content
             img(id="userimg", src="#", alt="image")   
     .mdl-cell.mdl-cell--6-col
         .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-                input#description-input.mdl-textfield__input(placeholder='Additional Description', type='text')
+                input#description-input.mdl-textfield__input(placeholder='Additional Description', type='textarea')
     .mdl-cell.mdl-cell--12-col
         .center-align
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id="submit-btn")

@@ -6,6 +6,8 @@ $('document').ready(function(){
     js_file.type = 'text/javascript';
     js_file.src = 'https://maps.googleapis.com/maps/api/js?callback=initMap&signed_in=true&key=AIzaSyCavNWccud6WHP9hFNR3pWYPjjZ1_oBwqA';
     document.getElementsByTagName('head')[0].appendChild(js_file);
+
+    $('#continue-btn').prop('disabled', true)
     
     $(".demo-card-square.mdl-card.mdl-shadow--2dp").click(function(){
         selected = $(this).attr('id'); 
@@ -103,6 +105,7 @@ function initMap() {
         marker = new google.maps.Marker();
         map.addListener('click', function(e){
             placeMarkerAndPanTo(e.latLng, map, marker);
+            $('#continue-btn').prop('disabled', false)
         });
         infoWindow = new google.maps.InfoWindow;
         // Try HTML5 geolocation.
