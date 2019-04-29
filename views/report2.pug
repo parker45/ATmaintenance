@@ -1,4 +1,4 @@
-extends layout
+extends layout_public
 block extraHeader
   link(rel='stylesheet', href='/stylesheets/report.css')
   link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
@@ -7,34 +7,34 @@ block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
         h4.title-text What Did You Encounter?
-        h7 Select All That Apply
+        h7.subheading Select All That Apply
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="tree")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="tree").issue_card
             i.fas.fa-tree
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Fallen Tree
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="shelter")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="shelter").issue_card
             i.fas.fa-campground
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Shelter Maintenance
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="garbage")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="garbage").issue_card
             i.fas.fa-trash-alt
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Garbage
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="trail")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="trail").issue_card
             i.fas.fa-hiking
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Trail Work
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="blaze")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="blaze").issue_card
             i.fas.fa-brush
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Trail Blazing
     .mdl-cell.mdl-cell--4-col.mdl-cell--2-col-phone
-        .demo-card-square.mdl-card.mdl-shadow--2dp(id="other")
+        .demo-card-square.mdl-card.mdl-shadow--2dp(id="other").issue_card
             i.fas.fa-question-circle
             .mdl-card__title.mdl-card--expand
                 h4.mdl-card__title-text Other
@@ -48,8 +48,11 @@ block content
             img(id="userimg", src="#", alt="image")   
     .mdl-cell.mdl-cell--6-col
         .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-                input#description-input.mdl-textfield__input(placeholder='Additional Description', type='textarea')
+                //- input#description-input.mdl-textfield__input(placeholder='Additional Description', type='textarea')
+                div.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                    textarea(type='text', rows='5', name='description', id='description').mdl-textfield__input
+                    label(for='description').mdl-textfield__label Additional Description
     .mdl-cell.mdl-cell--12-col
         .center-align
             button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id="submit-btn")
-                | Submit                           
+                | Submit

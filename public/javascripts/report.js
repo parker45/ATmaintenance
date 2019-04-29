@@ -25,7 +25,7 @@ $('document').ready(function(){
                 selectedList.push(value.id);
             }
         });
-        const description = $('#description-input').val();
+        const description = $('#description').val();
         console.log(description);
         console.log(imageUrl)
         const body = buildBody(localStorage.getItem("location"), selectedList, description, imageUrl);

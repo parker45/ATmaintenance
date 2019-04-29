@@ -6,7 +6,7 @@ var async = require('async');
 exports.admin = function(req, res) {
   async.parallel({
     inbox: function(callback) {
-      Task.find({type:'Inbox'}, callback);
+      Task.find({type:'Inbox'}, callback).sort( { creation_date: -1 } );
     },
     recurring: function(callback) {
       Task.find({type:'Recurring'}, callback);

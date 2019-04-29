@@ -2,6 +2,19 @@
     margin-top: 48px;
   } */
 
+h4 {
+    display: inline-block;
+}
+
+.subheading {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.issue_card:hover {
+    cursor: pointer;
+}
+
 .demo-ribbon {
     width: 100%;
     height: 40vh;

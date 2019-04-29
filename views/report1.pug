@@ -1,4 +1,4 @@
-extends layout
+extends layout_public
 block extraHeader
   link(rel='stylesheet', href='/stylesheets/report.css')
   script(src='/javascripts/report.js')
@@ -6,7 +6,7 @@ block content
   .mdl-grid
     .mdl-cell.mdl-cell--12-col
       h4 Where did you encounter the problem?
-      h6 Tap to Place a Marker
+      h6.subheading Tap to Place a Marker
       #map
       .center-align
         button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored(id='continue-btn', onclick="window.location.href = window.location.href+'/1';")
