@@ -18,3 +18,9 @@
   height: calc(40vh - 5rem);
   min-height: 208px;
 }
+
+@media screen and (max-width: 1064px) {
+  .column_list>li:nth-child(2) {
+    height: calc(100vh - 0rem) !important;
+  }
+}

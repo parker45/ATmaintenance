@@ -145,6 +145,11 @@ option.emergency {
 }
 
 @media screen and (max-width: 1064px) {
+
+  .column_list>li:nth-child(2) {
+    height: calc(100vh - 0rem) !important;
+  }
+  
   .wrapper {
     overflow: hidden;
   }
